@@ -1,4 +1,4 @@
-## Setup: install docker, get data, chill out
+## Setup: install ssh, test connection, chill out
 
 NOPE, today we use a set of AWS EC2 instances, so make sure you have ssh
 

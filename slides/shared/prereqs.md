@@ -86,7 +86,7 @@ class: in-person
 
 ---
 
-class: in-person
+class: in-person, extra-details
 
 ## Why don't we run containers locally?
 
@@ -274,6 +274,8 @@ You will need a Docker ID to use Play-With-Docker.
 
 ---
 
+class: extra-details
+
 ## Terminals
 
 Once in a while, the instructions will say:
@@ -288,6 +290,8 @@ There are multiple ways to do this:
 You are welcome to use the method that you feel the most comfortable with.
 
 ---
+
+class: extra-details
 
 ## Tmux cheatsheet
 

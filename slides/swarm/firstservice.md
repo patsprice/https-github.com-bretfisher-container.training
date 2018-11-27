@@ -108,6 +108,8 @@ class: extra-details
 
 ---
 
+class: extra-details
+
 ## Monitoring deployment progress with `--detach`
 
 (New in Docker Engine 17.10)
@@ -128,6 +130,8 @@ class: extra-details
   - it exits as soon as the request is committed into Raft
 
 ---
+
+class: extra-details
 
 ## To `--detach` or not to `--detach`
 
@@ -161,6 +165,8 @@ class: extra-details
  (You can watch progress with e.g. `watch docker service ps <serviceID>`)
 
 ---
+
+class: extra-details
 
 ## `--detach` in action
 
@@ -237,7 +243,7 @@ The latest version of the ElasticSearch image won't start without mandatory conf
 
 ---
 
-class: extra-details, pic
+class: extra-details, pc
 
 ![diagram showing what happens during docker service create, courtesy of @aluzzardi](images/docker-service-create.svg)
 
@@ -372,7 +378,7 @@ class: pic
 
 ---
 
-class: btw-labels
+class: btw-labels, extra-details
 
 ## You should use labels
 
