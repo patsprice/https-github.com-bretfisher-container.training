@@ -1,5 +1,79 @@
 # Running our first Swarm service
 
+- Let's leverage the Docker API to visualize our containers in a webpage
+
+.exercise[
+
+- Run this simple-yet-beautiful visualization app:
+  ```bash
+  cd ~/container.training/stacks
+  docker-compose -f visualizer.yml up -d
+  ```
+
+  <!-- ```longwait Creating dockerswarmvisualizer_viz_1``` -->
+
+]
+
+- Note we're not using Swarm for this, just a single container on node1
+
+---
+
+## Connect to the visualization webapp
+
+- It runs a web server on port 8080
+
+.exercise[
+
+- Point your browser to port 8080 of your node1's public ip
+
+  (If you use Play-With-Docker, click on the (8080) badge)
+
+  <!-- ```open http://node1:8080``` -->
+
+]
+
+- The webapp updates the display automatically (you don't need to reload the page)
+
+- It only shows Swarm services (not standalone containers)
+
+- It shows when nodes go down
+
+- It has some glitches (it's not Carrier-Grade Enterprise-Compliant ISO-9001 software)
+
+---
+
+class: extra-details
+
+## Why This Is More Important Than You Think
+
+- The visualizer accesses the Docker API *from within a container*
+
+- This is a common pattern: run container management tools *in containers*
+
+- Instead of viewing your cluster, this could take care of logging, metrics, autoscaling ...
+
+- We can run it within a service, too! We won't do it yet, but the command would look like:
+
+  ```bash
+    docker service create \
+      --mount source=/var/run/docker.sock,type=bind,target=/var/run/docker.sock \
+      --name viz --constraint node.role==manager ...
+  ```
+
+.footnote[
+
+Credits: the visualization code was written by
+[Francisco Miranda](https://github.com/maroshii).
+
+[Mano Marks](https://twitter.com/manomarks) adapted
+it to Swarm and maintains it.
+
+]
+
+---
+
+## Running our first Swarm service
+
 - How do we run services? Simplified version:
 
   `docker run` → `docker service create`
@@ -64,6 +138,24 @@ class: extra-details
 
 ---
 
+## What other service commands are there?
+
+.exercise[
+
+- List all `service` sub-commands:
+  ```bash
+  docker service
+  ```
+
+- Like other Docker objects, we can inspect the service:
+  ```bash
+  docker service inspect pingpong
+  ```
+
+]
+
+---
+
 class: extra-details
 
 ## Viewing the logs of the container
@@ -104,6 +196,10 @@ class: extra-details
   docker ps
   ```
 
+- run a `docker ps` equivalent on node2 using the node command:
+  ```bash
+  docker node ps node2
+  ```
 ]
 
 ---
@@ -436,76 +532,6 @@ class: extra-details
   ) to get started on `macvlan`
 
 - See [this PR](https://github.com/moby/moby/pull/32981) for more information about local network drivers in Swarm mode
-
----
-
-## Visualize container placement
-
-- Let's leverage the Docker API!
-
-.exercise[
-
-- Run this simple-yet-beautiful visualization app:
-  ```bash
-  cd ~/container.training/stacks
-  docker-compose -f visualizer.yml up -d
-  ```
-
-  <!-- ```longwait Creating dockerswarmvisualizer_viz_1``` -->
-
-]
-
----
-
-## Connect to the visualization webapp
-
-- It runs a web server on port 8080
-
-.exercise[
-
-- Point your browser to port 8080 of your node1's public ip
-
-  (If you use Play-With-Docker, click on the (8080) badge)
-
-  <!-- ```open http://node1:8080``` -->
-
-]
-
-- The webapp updates the display automatically (you don't need to reload the page)
-
-- It only shows Swarm services (not standalone containers)
-
-- It shows when nodes go down
-
-- It has some glitches (it's not Carrier-Grade Enterprise-Compliant ISO-9001 software)
-
----
-
-## Why This Is More Important Than You Think
-
-- The visualizer accesses the Docker API *from within a container*
-
-- This is a common pattern: run container management tools *in containers*
-
-- Instead of viewing your cluster, this could take care of logging, metrics, autoscaling ...
-
-- We can run it within a service, too! We won't do it yet, but the command would look like:
-
-  ```bash
-    docker service create \
-      --mount source=/var/run/docker.sock,type=bind,target=/var/run/docker.sock \
-      --name viz --constraint node.role==manager ...
-  ```
-
-.footnote[
-
-Credits: the visualization code was written by
-[Francisco Miranda](https://github.com/maroshii).
-
-[Mano Marks](https://twitter.com/manomarks) adapted
-it to Swarm and maintains it.
-
-]
 
 ---
 

@@ -11,7 +11,7 @@
 
 - Force a rolling update (replace containers) to different image:
   ```bash
-  docker service update --image 127.0.0.1:5000/hasher:v0.1 dockercoins_hasher
+  docker service update --image dogvscat/hasher:v0.1 dockercoins_hasher
   ```
 
 ]

@@ -10,7 +10,7 @@ class: secrets
 
 - Secrets are exposed as plain text files, but kept in memory only (using `tmpfs`)
 
-- Secrets are immutable (at least in Engine 1.13)
+- Secrets are immutable
 
 - Secrets have a max size of 500 KB
 

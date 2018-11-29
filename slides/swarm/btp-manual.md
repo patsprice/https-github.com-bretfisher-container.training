@@ -1,4 +1,19 @@
+# Our app on Swarm
+
+In this part, we will:
+
+- Create a multi-node **overlay** network
+
+- Create **Swarm Services** for each of our apps
+
+- **Scale** services to multiple containers and nodes
+
+
+---
+class: extra-details
+
 ## Build, tag, and push our container images
+
 
 - Compose has named our images `dockercoins_XXX` for each service
 
@@ -120,11 +135,10 @@ It alters the code path for `docker run`, so it is allowed only under strict cir
 
 - Start the other services:
   ```bash
-    export REGISTRY=127.0.0.1:5000
     export TAG=v0.1
     for SERVICE in hasher rng webui worker; do
       docker service create --network dockercoins --detach=true \
-        --name $SERVICE $REGISTRY/$SERVICE:$TAG
+        --name $SERVICE dogvscat/$SERVICE:$TAG
     done
   ```
 
@@ -192,29 +206,28 @@ It has been replaced by the new version, with port 80 accessible from outside.
 
 - We can change scaling parameters with `docker update` as well
 
-- We will do the equivalent of `docker-compose scale`
+- We also have a dedicated `docker scale` command that does the same thing
 
 .exercise[
 
 - Bring up more workers:
   ```bash
-  docker service update worker --replicas 10
+  docker service scale worker=10
   ```
 
-- Check the result in the web UI
+- Check the result in the web UI and Visualizer
 
 ]
 
-You should see the performance peaking at 10 hashes/s (like before).
-
 ---
 
-# Global scheduling
-
-- We want to utilize as best as we can the entropy generators
-  on our nodes
+## Global scheduling
 
 - We want to run exactly one `rng` instance per node
+
+- Why? No real reason, but Fictional Workshop Plot™️:
+  - We need more entropy
+  - More Kernels give us more entropy
 
 - SwarmKit has a special scheduling mode for that, let's use it
 
@@ -236,7 +249,7 @@ You should see the performance peaking at 10 hashes/s (like before).
 - Re-create the `rng` service with *global scheduling*:
   ```bash
     docker service create --name rng --network dockercoins --mode global \
-      $REGISTRY/rng:$TAG
+      dogvscat/rng:v0.1
   ```
 
 - Look at the result in the web UI

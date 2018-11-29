@@ -37,9 +37,9 @@ chapters:
   #- swarm/machine.md
   - swarm/morenodes.md
 - - swarm/firstservice.md
-  - swarm/ourapponswarm.md
-  - swarm/hostingregistry.md
-  - swarm/testingregistry.md
+  # - swarm/ourapponswarm.md
+  # - swarm/hostingregistry.md
+  # - swarm/testingregistry.md
   - swarm/btp-manual.md
   - swarm/swarmready.md
   - swarm/stacks.md
@@ -49,8 +49,8 @@ chapters:
   - swarm/healthchecks.md
 - - swarm/operatingswarm.md
   - swarm/netshoot.md
-  - swarm/ipsec.md
-  - swarm/swarmtools.md
+  # - swarm/ipsec.md
+  # - swarm/swarmtools.md
   - swarm/security.md
   - swarm/secrets.md
   - swarm/encryptionatrest.md

@@ -1,8 +1,6 @@
 name: healthchecks
 
-# Health checks and auto-rollbacks
-
-(New in Docker Engine 1.12)
+# Health checks
 
 - Commands that are executed on regular intervals in a container
 
@@ -65,7 +63,6 @@ name: healthchecks
 
 Here is a comprehensive example using the CLI:
 
-.sall[
 ```bash
 docker service update \
   --update-delay 5s \
@@ -83,7 +80,6 @@ docker service update \
   --health-retries 1 \
   --image yourimage:newversion yourservice
 ```
-]
 
 ---
 
@@ -94,8 +90,6 @@ We will use the following Compose file (`stacks/dockercoins+healthcheck.yml`):
 ```yaml
 ...
   hasher:
-    build: dockercoins/hasher
-    image: ${REGISTRY-127.0.0.1:5000}/hasher:${TAG-latest}
     healthcheck:
       test: curl -f http://localhost/ || exit 1
     deploy:
@@ -124,10 +118,12 @@ We need to update our services with a healthcheck.
 
 - Deploy the updated stack with healthchecks built-in:
   ```bash
-  docker stack deploy --compose-file dockercoins+healthcheck.yml dockercoins 
+  docker stack deploy -c dockercoins.yml -c dockercoins+healthcheck.yml dockercoins 
   ```
 
 ]
+
+Notice you're layering two Compose files, and the 2nd add's to the first
 
 ---
 
@@ -135,23 +131,17 @@ We need to update our services with a healthcheck.
 
 - Here's a good example of why healthchecks are necessary
 
+- v0.3 of hasher will change the ruby listening port but not the Dockerfile
+
 - This breaking change will prevent the app from listening on the correct port
 
 - The container still runs fine, it just won't accept connections on port 80
 
 .exercise[
 
-- Change the HTTP listening port:
-  ```bash
-  sed -i "s/80/81/" dockercoins/hasher/hasher.rb
-  ```
-
 - Build, ship, and run the new image:
   ```bash
-  export TAG=v0.3
-  docker-compose -f dockercoins+healthcheck.yml build
-  docker-compose -f dockercoins+healthcheck.yml push
-  docker service update --image=127.0.0.1:5000/hasher:$TAG dockercoins_hasher
+  docker service update --image dogvscat/hasher:v0.3 dockercoins_hasher
   ```
 
 ]
