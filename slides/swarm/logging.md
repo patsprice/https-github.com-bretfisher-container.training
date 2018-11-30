@@ -181,27 +181,32 @@ class: elk-auto
 
 - We will use a stack file
 
+- Even better, we'll use a community project "[docker-elk](https://github.com/deviantony/docker-elk)" 
+by [@tony_lapenna](https://twitter.com/tony_lapenna) of Portainer fame
+
+- We've sub-moduled' the git repo, so let's deploy plug-n-play style 
+
 .exercise[
 
-- Build, ship, and run our ELK stack:
+- Deploy our ELK stack:
   ```bash
-  docker-compose -f elk.yml build
-  docker-compose -f elk.yml push
-  docker stack deploy -c elk.yml elk
+  cd ~/container.training/stacks/docker-elk
+  docker stack deploy -c docker-stack.yml -c ../elk.override.yml elk
   ```
 
 ]
 
-Note: the *build* and *push* steps are not strictly necessary, but they don't hurt!
-
 Let's have a look at the [Compose file](
-https://@@GITREPO@@/blob/master/stacks/elk.yml).
+https://github.com/deviantony/docker-elk/blob/539b5b8fc39fc4109bef69aee1d6005d5c10e9e7/docker-stack.yml).
 
 ---
 
 class: elk-auto
 
 ## Checking that our ELK stack works correctly
+
+- First we need to create a index pattern using Kibana's API
+
 
 - Let's view the logs of logstash
 
@@ -211,7 +216,10 @@ class: elk-auto
 
 - Stream logstash's logs:
   ```bash
-  docker service logs --follow --tail 1 elk_logstash
+  curl -XPOST -D- 'http://localhost:5601/api/saved_objects/index-pattern' \
+    -H 'Content-Type: application/json' \
+    -H 'kbn-version: 6.4.2' \
+    -d '{"attributes":{"title":"logstash-*","timeFieldName":"@timestamp"}}'
   ```
 
 ]

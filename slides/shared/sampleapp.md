@@ -17,7 +17,7 @@ fi
 
 - Clone the repository on `node1`:
   ```bash
-  git clone https://@@GITREPO@@
+  git clone --recursive https://@@GITREPO@@
   ```
 
 ]
