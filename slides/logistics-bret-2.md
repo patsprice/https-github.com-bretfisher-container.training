@@ -1,11 +1,17 @@
-## Setup: install ssh, test connection, chill out
+## Swarm Orchestration - Features and Workflows
 
-NOPE, today we use a set of AWS EC2 instances, so make sure you have ssh
+### Setup: install ssh, test connection, chill out
 
-.small[
-  BONUS: Get my [Swarm Mastery Video Course for Free](https://www.udemy.com/docker-swarm-mastery/?couponCode=VELOCITYLON18)
-  
-]
+- You'll get 3 servers via a piece of paper, they are your unique IP's
+
+- Today we use a set of AWS EC2 instances, so make sure you have ssh installed
+
+- Test ssh with `ssh docker@<your server ips>`
+
+- Enjoy some classic rock while we get this party started!
+
+- You could also browse my Swarm resources [bretfisher.com/docker](https://www.bretfisher.com/docker)
+
 
 ---
 
@@ -15,6 +21,8 @@ NOPE, today we use a set of AWS EC2 instances, so make sure you have ssh
    - I do things at https://bretfisher.com
    - Docker Captain, Udemy Course Author, DevOps Consultant, Meetup Organizer
    - I spend 100% helping people with Docker and container tools
+
+- Remy Clement-Hausman and Moustapha Gueye from Docker are here to help!
 
 - The workshop will run from 9pm to 5pm, with a short break every 90min
 
