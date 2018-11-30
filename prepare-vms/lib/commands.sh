@@ -95,6 +95,10 @@ _cmd_deploy() {
         docker-machine create -d generic --generic-ssh-user docker --generic-ip-address
     fi"
 
+    # enable docker metrics for monitoring slides, and restart docker
+    pssh -I tee /etc/docker/daemon.json <lib/daemon.json
+    pssh sudo systemctl restart docker
+
     sep "Deployed tag $TAG"
     echo deployed > tags/$TAG/status
     info "You may want to run one of the following commands:"

@@ -1151,18 +1151,17 @@ class: prom-auto
 
 - We will use a stack definition (once again)
 
+- We will borrow from the community! (once again)
+
+- [Stefan Prodan](https://twitter.com/stefanprodan) maintains the excellent 
+["Swarm Prom" repo](https://github.com/stefanprodan/swarmprom)
+
 .exercise[
 
 - Make sure we are in the stacks directory:
   ```bash
-  cd ~/container.training/stacks
-  ```
-
-- Build, ship, and run the Prometheus stack:
-  ```bash
-  docker-compose -f prometheus.yml build
-  docker-compose -f prometheus.yml push
-  docker stack deploy -c prometheus.yml prometheus
+  cd ~/container.training/stacks/swarmprom
+  docker stack deploy -c docker-compose.yml prom
   ```
 
 ]
@@ -1178,6 +1177,8 @@ class: prom
 .exercise[
 
 - Open port 9090 with your browser
+
+- login in with `admin/admin`
 
 - Click on "status", then "targets"
 
