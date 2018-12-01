@@ -1614,7 +1614,39 @@ class: prom
 
 ## Checking out the rest of "swarmprom"
 
-- TODO
+- Grafana ia a analytics and graphing dashboard that works well with Prometheus
+
+
+
+.exercise[
+
+- Open port 3000 with your browser
+
+- login in with `admin/admin` (click skip when asked to change password)
+
+- Click on "Home", then "Docker Swarm Nodes"
+
+- Check out the pretty pretty lights!
+
+- Click on "Home", then "Docker Swarm Services"
+
+]
+
+---
+
+class: prom
+
+## Even more in "swarmprom"?
+
+- Yea lots more with [this community project](https://github.com/stefanprodan/swarmprom):
+
+- Alert Manager (sends metric alerts to email, Slack, PagerDuty, etc.): port 9093
+
+- Unsee (alerts dashboard): port 9094
+
+- Caddy (for reverse proxy with auth!)
+
+- Metrics collectors (node-exporter, cadvisor, and dockerd-exporter)
 
 ---
 

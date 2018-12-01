@@ -2,13 +2,15 @@
 
 What about web interfaces to control and manage Swarm?
 
-- [Docker Enterprise](https://www.docker.com/products/docker-enterprise) is Docker Inc's paid offering, which has GUI's.
+- [Docker Enterprise](https://www.docker.com/products/docker-enterprise) is Docker Inc's paid offering, which has GUI's
 
-- [Portainer](https://portainer.io) is a popular open source web GUI for Swarm with node agents.
+- [Portainer](https://portainer.io) is a popular open source web GUI for Swarm with node agents
 
-- [Portus](http://port.us.org) is a SUSE-backed open source web GUI for registry.
+- [Swarmpit](https://swarmpit.io/) is another open source web GUI for Swarm
 
-- Find lots of other Swarm tools in the [Awesome Docker list](http://awesome-docker.netlify.com).
+- [Portus](http://port.us.org) is a SUSE-backed open source web GUI for registry
+
+- Find lots of other Swarm tools in the [Awesome Docker list](http://awesome-docker.netlify.com)
 
 ---
 
@@ -34,7 +36,9 @@ What about web interfaces to control and manage Swarm?
 
 ## View and setup Portainer
 
-- go to `<node ip>:9090`
+.exercise[
+
+- Open your browser to port `9090`
 
 - You should see the setup UI. Create a 8-digit password.
 
@@ -49,3 +53,5 @@ What about web interfaces to control and manage Swarm?
   - Agent URL: `tasks.agent:9001`
 
 - Let's browse around the interface
+
+]
