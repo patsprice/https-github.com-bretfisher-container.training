@@ -24,8 +24,6 @@
 
 - Remy Clement-Hausman and Moustapha Gueye from Docker are here to help!
 
-- The workshop will run from 9pm to 5pm, with a short break every 90min
-
 - Feel free to interrupt for questions at any time
 
-- Live feedback, questions, help on @@CHAT@@ (but first [sign up for it](https://dockermasterychat.herokuapp.com))
+- Live feedback, questions, help on Docker Community @@CHAT@@ (but first [sign up for it](http://dockr.ly/community))
