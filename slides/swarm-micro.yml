@@ -22,7 +22,7 @@ exclude:
 chapters:
 - shared/title.md
 - logistics-bret-2.md
-- swarm/intro.md
+# - swarm/intro.md
 - shared/about-slides.md
 - shared/toc.md
 - - shared/prereqs.md
