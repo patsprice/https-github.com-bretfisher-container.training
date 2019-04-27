@@ -1,12 +1,12 @@
 ## Swarm Orchestration - Features and Workflows
 
-### Setup: install ssh, test connection, chill out
+### Setup: test connection, create 3 instances, chill out
 
-- You'll get 3 servers via a piece of paper, they are your unique IP's
+- Log in with Docker ID to https://workshop.play-with-docker.com
 
-- Today we use a set of AWS EC2 instances, so make sure you have ssh installed
+- Create three instances (we'll do most work on node1)
 
-- Test ssh with `ssh docker@<your server ips>`
+- Optional: Don't like HTTPS, you can SSH in too (see SSH command on node page)
 
 - Enjoy some classic rock while we get this party started!
 
@@ -22,7 +22,7 @@
    - Docker Captain, Udemy Course Author, DevOps Consultant, Meetup Organizer
    - I spend 100% helping people with Docker and container tools
 
-- Remy Clement-Hausman and Moustapha Gueye from Docker are here to help!
+- Nils De Moor (Docker Captain), Neil Cresswell (Portainer), and Rameshkumar Selvaraj, are here to help!
 
 - Feel free to interrupt for questions at any time
 

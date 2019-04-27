@@ -70,7 +70,7 @@ class: in-person, pic
 
 ---
 
-class: in-person
+class: in-person, extra-details
 
 ## You get a cluster of cloud VMs
 
@@ -107,7 +107,7 @@ class: in-person, extra-details
 
 ---
 
-class: in-person
+class: in-person, extra-details
 
 ## SSH clients
 
@@ -172,7 +172,7 @@ class: in-person, extra-details
 
 ---
 
-class: in-person
+class: in-person, extra-details
 
 ## Connecting to our lab environment
 
@@ -209,6 +209,8 @@ fi
 If anything goes wrong — ask for help!
 
 ---
+
+class: self-paced
 
 ## Doing or re-doing the workshop on your own?
 
@@ -260,7 +262,7 @@ You will need a Docker ID to use Play-With-Docker.
 
 *These remarks apply only when using multiple nodes, of course.*
 
-- Unless instructed, **all commands must be run from the first VM, `node1`**
+- Unless instructed, **all commands must be run from `node1`**
 
 - We will only checkout/copy the code on `node1`
 

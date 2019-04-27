@@ -7,7 +7,7 @@ chat: "[Slack](https://dockercommunity.slack.com/messages/CEH5C4FMK)"
 
 gitrepo: github.com/bretfisher/container.training
 
-slides: https://dockercon18eu.bretfisher.com
+slides: https://dockercon19.bretfisher.com
 
 exclude:
 - self-paced
