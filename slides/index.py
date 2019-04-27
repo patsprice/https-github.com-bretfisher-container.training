@@ -4,11 +4,30 @@ TEMPLATE="""<html>
 <head>
   <title>{{ title }}</title>
   <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
 </head>
 <body>
   <div class="main">
     <table>
       <tr><td class="header" colspan="3">{{ title }}</td></tr>
+      <tr><td class="details" colspan="3">Note: while some workshops are delivered in French, slides are always in English.</td></tr>
+
+      <tr><td class="title" colspan="3">Free video of our latest workshop</td></tr>
+
+      <tr>
+      	<td>Getting Started With Kubernetes and Container Orchestration</td>
+      	<td><a class="slides" href="https://qconuk2019.container.training" /></td>
+      	<td><a class="video" href="https://www.youtube.com/playlist?list=PLBAFXs0YjviJwCoxSUkUPhsSxDJzpZbJd" /></td>
+      </tr>
+      <tr>
+        <td class="details">This is a live recording of a 1-day workshop that took place at QCON London in March 2019.</td>
+      </tr>
+      <tr>
+        <td class="details">If you're interested, we can deliver that workshop (or longer courses) to your team or organization.</td>
+      </tr>
+      <tr>
+        <td class="details">Contact <a href="mailto:jerome.petazzoni@gmail.com">Jérôme Petazzoni</a> to make that happen!</a></td>
+      </tr>
 
       {% if coming_soon %}
         <tr><td class="title" colspan="3">Coming soon near you</td></tr>
@@ -17,7 +36,10 @@ TEMPLATE="""<html>
           <tr>
             <td>{{ item.title }}</td>
             <td>{% if item.slides %}<a class="slides" href="{{ item.slides }}" />{% endif %}</td>
-            <td><a class="attend" href="{{ item.attend }}" /></td>
+            <td>{% if item.attend %}<a class="attend" href="{{ item.attend }}" />
+            {% else %}
+              <p class="details">{{ item.status }}</p>
+            {% endif %}</td>
           </tr>
           <tr>
             <td class="details">Scheduled {{ item.prettydate }} at {{ item.event }} in {{item.city }}.</td>
@@ -31,7 +53,10 @@ TEMPLATE="""<html>
         {% for item in past_workshops[:5] %}
           <tr>
             <td>{{ item.title }}</td>
-            <td><a class="slides" href="{{ item.slides }}" /></td>
+            <td>{% if item.slides %}<a class="slides" href="{{ item.slides }}" />
+            {% else %}
+              <p class="details">{{ item.status }}</p>
+            {% endif %}</td>
             <td>{% if item.video %}<a class="video" href="{{ item.video }}" />{% endif %}</td>
           </tr>
           <tr>
@@ -106,26 +131,41 @@ import yaml
 
 items = yaml.load(open("index.yaml"))
 
+# Items with a date correspond to scheduled sessions.
+# Items without a date correspond to self-paced content.
+# The date should be specified as a string (e.g. 2018-11-26).
+# It can also be a list of two elements (e.g. [2018-11-26, 2018-11-28]).
+# The latter indicates an event spanning multiple dates.
+# The first date will be used in the generated page, but the event
+# will be considered "current" (and therefore, shown in the list of
+# upcoming events) until the second date.
+
 for item in items:
     if "date" in item:
         date = item["date"]
+        if type(date) == list:
+            date_begin, date_end = date
+        else:
+            date_begin, date_end = date, date
         suffix = {
                 1: "st", 2: "nd", 3: "rd",
                 21: "st", 22: "nd", 23: "rd",
-                31: "st"}.get(date.day, "th")
+                31: "st"}.get(date_begin.day, "th")
         # %e is a non-standard extension (it displays the day, but without a
         # leading zero). If strftime fails with ValueError, try to fall back
         # on %d (which displays the day but with a leading zero when needed).
         try:
-            item["prettydate"] = date.strftime("%B %e{}, %Y").format(suffix)
+            item["prettydate"] = date_begin.strftime("%B %e{}, %Y").format(suffix)
         except ValueError:
-            item["prettydate"] = date.strftime("%B %d{}, %Y").format(suffix)
+            item["prettydate"] = date_begin.strftime("%B %d{}, %Y").format(suffix)
+        item["begin"] = date_begin
+        item["end"] = date_end
 
 today = datetime.date.today()
-coming_soon = [i for i in items if i.get("date") and i["date"] >= today]
-coming_soon.sort(key=lambda i: i["date"])
-past_workshops = [i for i in items if i.get("date") and i["date"] < today]
-past_workshops.sort(key=lambda i: i["date"], reverse=True)
+coming_soon = [i for i in items if i.get("date") and i["end"] >= today]
+coming_soon.sort(key=lambda i: i["begin"])
+past_workshops = [i for i in items if i.get("date") and i["end"] < today]
+past_workshops.sort(key=lambda i: i["begin"], reverse=True)
 self_paced = [i for i in items if not i.get("date")]
 recorded_workshops = [i for i in items if i.get("video")]
 

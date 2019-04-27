@@ -19,7 +19,7 @@ class: title
 
   - install Docker on e.g. a cloud VM
 
-  - use http://www.play-with-docker.com/ to instantly get a training environment
+  - use https://www.play-with-docker.com/ to instantly get a training environment
 
 ---
 
@@ -91,7 +91,7 @@ $ ssh <login>@<ip-address>
 
   * Git BASH (https://git-for-windows.github.io/)
 
-  * MobaXterm (http://moabaxterm.mobatek.net)
+  * MobaXterm (https://mobaxterm.mobatek.net/)
 
 ---
 

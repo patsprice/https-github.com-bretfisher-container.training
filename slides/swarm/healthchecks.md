@@ -1,6 +1,6 @@
 name: healthchecks
 
-# Health checks
+# Health checks and auto-rollbacks
 
 - Commands that are executed on regular intervals in a container
 
