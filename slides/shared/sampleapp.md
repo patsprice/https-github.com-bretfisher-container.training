@@ -100,7 +100,7 @@ and displays aggregated logs.
 
 - These 5 services are visible in the application's Compose file,
   [docker-compose.yml](
-  https://@@GITREPO@@/blob/dockercon18eu/stacks/docker-compose.yml)
+  https://@@GITREPO@@/blob/dockercon19/stacks/docker-compose.yml)
 
 ---
 
@@ -252,11 +252,8 @@ class: extra-details
 
 .exercise[
 
-- With a web browser, connect to `node1` on port 8000
+- You should see a link at top of PWD page, click it!
 
-- Remember: the `nodeX` aliases are valid only on the nodes themselves
-
-- In your browser, you need to enter the IP address of your node
 
 <!-- ```open http://node1:8000``` -->
 

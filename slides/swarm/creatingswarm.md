@@ -218,10 +218,7 @@ ID             HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
   docker swarm join-token worker
   ```
 
-- Log into `node2`:
-  ```bash
-  ssh node2
-  ```
+- Click on PWD Instance 2 (aka `node2`)
 
 - Copy-paste the `docker swarm join ...` command
   <br/>(that was displayed just before)
@@ -265,7 +262,7 @@ class: extra-details
 
 .exercise[
 
-- Switch back to `node1` (with `exit`, `Ctrl-D` ...)
+- Switch back to `node1`
 
 <!-- ```keys ^D``` -->
 

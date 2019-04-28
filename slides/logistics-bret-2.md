@@ -6,8 +6,6 @@
 
 - Create three instances (we'll do most work on node1)
 
-- Optional: Don't like HTTPS, you can SSH in too (see SSH command on node page)
-
 - Enjoy some classic rock while we get this party started!
 
 - You could also browse my Swarm resources [bretfisher.com/docker](https://www.bretfisher.com/docker)

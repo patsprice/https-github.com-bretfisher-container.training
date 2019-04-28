@@ -46,7 +46,7 @@ class: in-person
 
 - Add the remaining node:
   ```bash
-    ssh node3 docker swarm join --token $TOKEN node1:2377
+    ssh <node3 IP> docker swarm join --token $TOKEN node1:2377
   ```
 
 ]
