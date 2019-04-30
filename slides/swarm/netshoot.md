@@ -68,6 +68,8 @@ The `constraint` makes sure that the container will be created on the local node
 
 ---
 
+class: extra-details
+
 ## Labels
 
 - We can also be fancy and find the ID of the container automatically
@@ -136,15 +138,8 @@ It is a virtual IP address (VIP) for the `rng` service.
 
 ]
 
-It *should* ping. (But this might change in the future.)
+This pings the VIP not the containers themselves.
 
-With Engine 1.12: VIPs respond to ping if a
-backend is available on the same machine.
-
-With Engine 1.13: VIPs respond to ping if a
-backend is available anywhere.
-
-(Again: this might change in the future.)
 
 ---
 

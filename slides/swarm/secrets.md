@@ -137,15 +137,11 @@ class: secrets
 
 .exercise[
 
-- Remove the insecure `hackme` secret:
-  ```bash
-  docker service update dummyservice --secret-rm hackme
-  ```
-
-- Add our better secret instead:
+- Remove the insecure `hackme` secret and add better one:
   ```bash
   docker service update dummyservice \
-         --secret-add source=arewesecureyet,target=hackme
+    --secret-rm hackme \
+    --secret-add source=arewesecureyet,target=hackme
   ```
 
 ]
@@ -177,7 +173,7 @@ class: secrets
 
 ---
 
-class: secrets
+class: secrets, extra-details
 
 ## Secrets in practice
 
