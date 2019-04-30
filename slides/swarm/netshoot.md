@@ -176,7 +176,7 @@ This pings the VIP not the containers themselves.
 
 ]
 
-This should list 5 IP addresses.
+This should list 3 IP addresses.
 
 ---
 
