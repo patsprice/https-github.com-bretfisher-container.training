@@ -281,7 +281,7 @@ The test message should show up as well in the logstash container logs.
 In fact, *multiple messages will show up, and continue to show up every few seconds!*
 
 ---
-
+class: extra-details
 ## Restart conditions
 
 - By default, if a container exits (or is killed with `docker kill`, or runs out of memory ...),

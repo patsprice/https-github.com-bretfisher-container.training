@@ -38,7 +38,7 @@ What about web interfaces to control and manage Swarm?
 
 .exercise[
 
-- Open your browser to port `9090`
+- Open your browser to port `9000`
 
 - You should see the setup UI. Create a 8-digit password.
 
