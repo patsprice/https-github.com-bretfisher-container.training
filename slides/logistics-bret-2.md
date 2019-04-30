@@ -4,6 +4,10 @@
 
 - Create three instances (we'll do most work on node1)
 
+- Keep a record of your session URL
+  - As the state of your PWD session is persisted, you can reopen it in case you close your browser
+  - You can share this URL with someone else (eg. TA's to help you debug)
+
 - Enjoy some classic rock while we get this party started!
 
 - You could also browse my Swarm resources [bretfisher.com/docker](https://www.bretfisher.com/docker)
