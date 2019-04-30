@@ -56,50 +56,6 @@ class: btp-manual
 
 ---
 
-## Our first stack
-
-We need a registry to move images around.
-
-Without a stack file, it would be deployed with the following command:
-
-```bash
-docker service create --publish 5000:5000 registry
-```
-
-Now, we are going to deploy it with the following stack file:
-
-```yaml
-version: "3"
-
-services:
-  registry:
-    image: registry
-    ports:
-      - "5000:5000"
-```
-
----
-
-## Checking our stack files
-
-- All the stack files that we will use are in the `stacks` directory
-
-.exercise[
-
-- Go to the `stacks` directory:
-  ```bash
-  cd ~/container.training/stacks
-  ```
-
-- Check `registry.yml`:
-  ```bash
-  cat registry.yml
-  ```
-
-]
-
----
-
 ## Deploying our first stack
 
 - All stack manipulation commands start with `docker stack`
@@ -112,9 +68,10 @@ services:
 
 .exercise[
 
-- Deploy our local registry:
+- Create the application stack:
   ```bash
-  docker stack deploy --compose-file registry.yml registry
+  cd ~/container.training/stacks
+  docker stack deploy --compose-file dockercoins.yml dockercoins
   ```
 
 ]
@@ -129,12 +86,12 @@ services:
 
 - Check that our registry is running correctly:
   ```bash
-  docker stack ps registry
+  docker stack ps dockercoins
   ```
 
 - Confirm that we get the same output with the following command:
   ```bash
-  docker service ps registry_registry
+  docker service ps dockercoins_worker
   ```
 
 ]
@@ -145,7 +102,7 @@ class: btp-manual
 
 ## Specifics of stack deployment
 
-Our registry is not *exactly* identical to the one deployed with `docker service create`!
+Our dockercoins is not *exactly* identical to the ones deployed with `docker service create`!
 
 - Each stack gets its own overlay network
 
@@ -257,6 +214,8 @@ The curl command should now output:
 
 ---
 
+class: btp-auto
+
 ## Using Compose to build and push images
 
 .exercise[
@@ -295,6 +254,8 @@ services:
 ```
 
 ---
+
+class: btp-auto
 
 ## Deploying the application
 
