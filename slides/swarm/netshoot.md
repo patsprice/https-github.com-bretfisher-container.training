@@ -181,7 +181,7 @@ backend is available anywhere.
 
 ]
 
-This should list 5 IP addresses.
+This should list 3 IP addresses.
 
 ---
 
