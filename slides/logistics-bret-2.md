@@ -1,8 +1,6 @@
-## Swarm Orchestration - Features and Workflows
+## Setup: login, create 3 instances, chill out
 
-### Setup: test connection, create 3 instances, chill out
-
-- Log in with Docker ID to https://workshop.play-with-docker.com
+- Log in with Docker ID to https://dockr.ly/bret
 
 - Create three instances (we'll do most work on node1)
 
