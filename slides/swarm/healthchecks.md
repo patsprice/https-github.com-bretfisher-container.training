@@ -148,6 +148,19 @@ Notice you're layering two Compose files, and the 2nd add's to the first
 
 ---
 
+## What Just Happened?
+
+- Task 1 stopped old container and started a new one
+- Task 1 new container fails healthcheck, recreates new containers
+- Task 1 is still marked unhealthy, but `max_failure_ratio` is 50%
+- Task 2 starts same process
+- Task 3 starts same process
+- Task 4 starts same process
+- Unhealthy > 50%. `failure_action` is set to rollback
+- Task 1/2/3/4 stops containers, creates new containers from old definition
+
+---
+
 ## CLI flags for health checks and rollbacks
 
 .small[
