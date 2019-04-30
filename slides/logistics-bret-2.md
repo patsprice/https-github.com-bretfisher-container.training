@@ -8,7 +8,7 @@
   - Use it to reopen your session in case you close your browser
   - You can share this URL with someone else (eg. TA's to help you debug)
 
-- Enjoy some classic rock while we get this party started!
+- Enjoy some of Bret's favorite jams while we get this party started!
 
 - You could also browse my Swarm resources [bretfisher.com/docker](https://www.bretfisher.com/docker)
 
