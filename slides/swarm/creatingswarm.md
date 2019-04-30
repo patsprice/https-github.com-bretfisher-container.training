@@ -14,18 +14,14 @@
   ```bash
   docker swarm init
   ```
-
 ]
 
 --
 
-class: advertise-addr
 
 If Docker tells you that it `could not choose an IP address to advertise`, see next slide!
 
 ---
-
-class: advertise-addr
 
 ## IP address to advertise
 
@@ -41,13 +37,13 @@ class: advertise-addr
   <br/>
   (Docker refuses to pick one randomly)
 
-- You can specify an IP address or an interface name
-  <br/>
-  (in the latter case, Docker will read the IP address of the interface and use it)
+.exercise[
 
-- You can also specify a port number
-  <br/>
-  (otherwise, the default port 2377 will be used)
+- Create our cluster from node1:
+  ```bash
+  docker swarm init --advertise-addr eth0
+  ```
+]
 
 ---
 
@@ -220,7 +216,7 @@ ID             HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
 
 - Add the remaining node:
   ```bash
-    ssh <node2 IP> docker swarm join --token $TOKEN <node1 IP>:2377
+    ssh <node2 IP> /usr/local/bin/docker swarm join --token $TOKEN <node1 IP>:2377
   ```
 
 <!-- ```copypaste docker swarm join --token SWMTKN.*?:2377``` -->
