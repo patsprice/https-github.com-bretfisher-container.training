@@ -213,15 +213,15 @@ ID             HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
 
 .exercise[
 
-- Show the token again:
+- Obtain the manager token:
   ```bash
-  docker swarm join-token worker
+  TOKEN=$(docker swarm join-token -q worker)
   ```
 
-- Click on PWD Instance 2 (aka `node2`)
-
-- Copy-paste the `docker swarm join ...` command
-  <br/>(that was displayed just before)
+- Add the remaining node:
+  ```bash
+    ssh <node2 IP> docker swarm join --token $TOKEN <node1 IP>:2377
+  ```
 
 <!-- ```copypaste docker swarm join --token SWMTKN.*?:2377``` -->
 
