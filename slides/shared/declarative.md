@@ -1,6 +1,6 @@
 # Declarative vs imperative
 
-- Our container orchestrator puts a very strong emphasis on being *declarative*
+- Our container orchestrators put a very strong emphasis on being *declarative*
 
 - Declarative:
 
