@@ -1,6 +1,4 @@
-## Setup: login, create 3 instances, chill out
-
-- Log in with Docker ID to https://dockr.ly/bret
+## Setup: log into your servers, then chill out
 
 - Create three instances (we'll do most work on node1)
 
@@ -10,7 +8,7 @@
 
 - Enjoy some of Bret's favorite jams while we get this party started!
 
-- You could also browse my Swarm resources [bretfisher.com/docker](https://www.bretfisher.com/docker)
+- You could also browse my Docker resources [bretfisher.com/docker](https://www.bretfisher.com/docker)
 
 
 ---
@@ -22,8 +20,8 @@
    - Docker Captain, Udemy Course Author, DevOps Consultant, Meetup Organizer
    - I spend 100% helping people with Docker and container tools
 
-- Nils De Moor (Docker Captain), Neil Cresswell (Portainer), and Rameshkumar Selvaraj, are here to help!
-
 - Feel free to interrupt for questions at any time
 
-- Live feedback, questions, help on Docker Community @@CHAT@@ (but first [sign up for it](http://dockr.ly/community))
+- Live feedback, questions, help in @@CHAT@@
+
+- For later, join my Docker community at https://chat.dockermastery.com
