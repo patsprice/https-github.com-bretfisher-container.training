@@ -96,8 +96,8 @@ _cmd_deploy() {
     fi"
 
     # enable docker metrics for monitoring slides, and restart docker
-    pssh -I tee /etc/docker/daemon.json <lib/daemon.json
-    pssh sudo systemctl restart docker
+    # pssh -I tee /etc/docker/daemon.json <lib/daemon.json
+    # pssh sudo systemctl restart docker
 
     sep "Deployed tag $TAG"
     echo deployed > tags/$TAG/status
@@ -217,10 +217,7 @@ _cmd_kube() {
     [ -d kubectx ] || git clone https://github.com/ahmetb/kubectx &&
     sudo ln -sf /home/ubuntu/kubectx/kubectx /usr/local/bin/kctx &&
     sudo ln -sf /home/ubuntu/kubectx/kubens /usr/local/bin/kns &&
-    sudo cp /home/ubuntu/kubectx/completion/*.bash /etc/bash_completion.d &&
-    [ -d kube-ps1 ] || git clone https://github.com/jonmosco/kube-ps1 &&
-    sudo -u docker sed -i s/docker-prompt/kube_ps1/ /home/docker/.bashrc &&
-    sudo -u docker tee -a /home/docker/.bashrc <<EOF
+    sudo cp /home/ubuntu/kubectx/completion/*.bash /etc/bash_completion.d <<EOF
 . /home/ubuntu/kube-ps1/kube-ps1.sh
 KUBE_PS1_PREFIX=""
 KUBE_PS1_SUFFIX=""
