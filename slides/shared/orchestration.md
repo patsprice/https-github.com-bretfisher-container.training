@@ -1,16 +1,16 @@
 # What and why of orchestration
 
-* There are many computing orchestrators
+- There are many computing orchestrators
 
-* They make decisions about when and where to "do work"
-
---
-
-* We've done this since the dawn of computing: Mainframe schedulers, Puppet, Terraform, AWS, Mesos, Hadoop, etc.
+- They make decisions about when and where to "do work"
 
 --
 
-* Since 2014 we've had a resurgance of new orchestration projects because:
+- We've done this since the dawn of computing: Mainframe schedulers, Puppet, Terraform, AWS, Mesos, Hadoop, etc.
+
+--
+
+- Since 2014 we've had a resurgence of new orchestration projects because:
 
 --
 
@@ -22,76 +22,82 @@
 
 --
 
-* We needed "many servers to act like one, and run many containers"
+- We needed "many servers to act like one, and run many containers"
 
 --
 
-* An the Container Orchstrator was born
+- An the Container Orchestrator was born
 
 ---
 
-## Container orchstrators
+## Container orchestrator
 
-* Many open source projects have be created in the last 5 years to:
+- Many open source projects have been created in the last 5 years to:
 
-  * Schedule containers to run on servers
-
---
-
-  * Dispatch them across many nodes
+  - Schedule running of containers on servers
 
 --
 
-  * Manage container lifecycle operations
+  - Dispatch them across many nodes
 
 --
 
-  * Monitor and react to container and app health
+  - Monitor and react to container and server health
 
 --
 
-  * Provide storage, networking, proxy, security, and logging features
+  - Provide storage, networking, proxy, security, and logging features
 
 --
 
-  * Do all this in a declarative vs. imperative
+  - Do all this in a declarative way, rather than imperative
 
 --
 
-  * Provide API's to allow extensability and management
+  - Provide API's to allow extensibility and management
 
 ---
 
 ## Major container orchestration projects
 
-* Kubernetes
+- Kubernetes, aka K8s
 
-* Swarm
+- Docker Swarm
 
-* Apache Mesos/Marathon
+- Apache Mesos/Marathon
 
-* Cloud Foundry
+- Cloud Foundry
 
-* Amazon ECS (not OSS, AWS-only)
+- Amazon ECS (not OSS, AWS-only)
 
-* HashiCorp Nomad
+- HashiCorp Nomad
+
 
 --
 
-* **Kuberenetes is the *one* orchestrator with many _distrobutions_**
+- **Many of these are tools running on top of Docker Engine**
+
+--
+
+- **Kubernetes is the *one* orchestrator with many _distributions_**
 
 ---
 
-## Kubernetes distrobutions
+## Kubernetes distributions
 
-* Kubernetes "vanilla upstream"
+- Kubernetes "vanilla upstream"
 
-* RedHat OpenShift
+- RedHat OpenShift
 
-* Docker Enterprise (runs both Swarm and/or Kubernetes)
+- Docker Enterprise (runs both Swarm and/or Kubernetes)
 
-* Rancher
+- Rancher
 
-* Canonical Charmed Kubernetes
+- Canonical Charmed Kubernetes
 
-* And [Many, many more...](https://kubernetes.io/partners/#conformance) (86 as of June 2019)
+- And [Many, many more...](https://kubernetes.io/partners/#conformance) (86 as of June 2019)
+
+--
+
+- Rancher K3s (tiny version of Kubernetes, still early days)
+

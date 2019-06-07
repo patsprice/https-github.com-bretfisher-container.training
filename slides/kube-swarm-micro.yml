@@ -25,24 +25,23 @@ chapters:
 - shared/about-slides.md
 - shared/toc.md
 - - shared/prereqs.md
-  - swarm/versions.md
+  - k8s/versions-k8s.md
   - shared/sampleapp.md
   - shared/orchestration.md
-  - shared/swarm-vs-kube.md
-  - swarm/cicd.md
 - - swarm/swarmkit.md
   - swarm/swarmmode.md
   - swarm/creatingswarm.md
   - swarm/morenodes.md
-- - swarm/firstservice.md
-  - swarm/btp-manual.md
+  - swarm/firstservice.md
+- - swarm/btp-manual.md
   - swarm/swarmready.md
   - swarm/stacks.md
   - swarm/updatingservices.md
   - swarm/rollingupdates.md
   - swarm/healthchecks.md
+  - swarm/cicd.md
+  - shared/swarm-vs-k8s.md
 - - shared/swarm-to-k8s.md
-  - k8s/versions-k8s.md
   - k8s/concepts-k8s.md
   - k8s/declarative.md
   - k8s/kubenet.md

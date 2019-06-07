@@ -252,8 +252,11 @@ class: extra-details
 
 .exercise[
 
-- You should see a link at top of PWD page, click it!
+- With a web browser, connect to `node1` on port 8000
 
+- Remember: the `nodeX` aliases are valid only on the nodes themselves
+
+- In your browser, you need to enter the IP address of your node
 
 <!-- ```open http://node1:8000``` -->
 
