@@ -2,8 +2,6 @@ name: healthchecks
 
 # Health checks and auto-rollbacks
 
-(New in Docker Engine 1.12)
-
 - Commands that are executed on regular intervals in a container
 
 - Must return 0 or 1 to indicate "all is good" or "something's wrong"
@@ -65,7 +63,6 @@ name: healthchecks
 
 Here is a comprehensive example using the CLI:
 
-.small[
 ```bash
 docker service update \
   --update-delay 5s \
@@ -83,7 +80,6 @@ docker service update \
   --health-retries 1 \
   --image yourimage:newversion yourservice
 ```
-]
 
 ---
 
@@ -94,8 +90,6 @@ We will use the following Compose file (`stacks/dockercoins+healthcheck.yml`):
 ```yaml
 ...
   hasher:
-    build: dockercoins/hasher
-    image: ${REGISTRY-127.0.0.1:5000}/hasher:${TAG-latest}
     healthcheck:
       test: curl -f http://localhost/ || exit 1
     deploy:
@@ -124,10 +118,12 @@ We need to update our services with a healthcheck.
 
 - Deploy the updated stack with healthchecks built-in:
   ```bash
-  docker stack deploy --compose-file dockercoins+healthcheck.yml dockercoins 
+  docker stack deploy -c dockercoins.yml -c dockercoins+healthcheck.yml dockercoins 
   ```
 
 ]
+
+Notice you're layering two Compose files, and the 2nd add's to the first
 
 ---
 
@@ -135,26 +131,33 @@ We need to update our services with a healthcheck.
 
 - Here's a good example of why healthchecks are necessary
 
+- v0.3 of hasher will change the ruby listening port but not the Dockerfile
+
 - This breaking change will prevent the app from listening on the correct port
 
 - The container still runs fine, it just won't accept connections on port 80
 
 .exercise[
 
-- Change the HTTP listening port:
-  ```bash
-  sed -i "s/80/81/" dockercoins/hasher/hasher.rb
-  ```
-
 - Build, ship, and run the new image:
   ```bash
-  export TAG=v0.3
-  docker-compose -f dockercoins+healthcheck.yml build
-  docker-compose -f dockercoins+healthcheck.yml push
-  docker service update --image=127.0.0.1:5000/hasher:$TAG dockercoins_hasher
+  docker service update --image dogvscat/hasher:v0.3 dockercoins_hasher
   ```
 
 ]
+
+---
+
+## What Just Happened?
+
+- Task 1 stopped old container and started a new one
+- Task 1 new container fails healthcheck, recreates new containers
+- Task 1 is still marked unhealthy, but `max_failure_ratio` is 50%
+- Task 2 starts same process
+- Task 3 starts same process
+- Task 4 starts same process
+- Unhealthy > 50%. `failure_action` is set to rollback
+- Task 1/2/3/4 stops containers, creates new containers from old definition
 
 ---
 

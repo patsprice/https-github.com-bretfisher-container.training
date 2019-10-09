@@ -4,24 +4,11 @@ This app was written in June 2015. (One year before Swarm mode was released.)
 
 What did we change to make it compatible with Swarm mode?
 
---
+```bash
+cd ~/container.training/dockercoins
+git log -p --since "4-JUL-2015" -- . ':!*.yml*' ':!*.html'
+```
 
-.exercise[
-
-- Go to the app directory:
-  ```bash
-  cd ~/container.training/dockercoins
-  ```
-
-- See modifications in the code:
-  ```bash
-  git log -p --since "4-JUL-2015" -- . ':!*.yml*' ':!*.html'
-  ```
-
-  <!-- ```wait commit``` -->
-  <!-- ```keys q``` -->
-
-]
 
 ---
 

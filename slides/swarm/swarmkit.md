@@ -1,3 +1,11 @@
+class: pic
+
+# Docker Swarm
+
+.center[![Docker Swarm](images/swarm.png)]
+
+---
+
 # SwarmKit
 
 - [SwarmKit](https://github.com/docker/swarmkit) is an open source

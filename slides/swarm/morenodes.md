@@ -214,3 +214,11 @@ Running commands manually over SSH
 - [Docker for AWS](https://docs.docker.com/docker-for-aws/#quickstart)
 
 - [Docker for Azure](https://docs.docker.com/docker-for-azure/)
+
+- DCI (Docker Certified Infrastructure) for [AWS](https://success.docker.com/article/certified-infrastructures-aws), [Azure](https://success.docker.com/article/certified-infrastructures-azure), and [VMWare](https://success.docker.com/article/certified-infrastructures-vmware-vsphere)
+
+- Roll your own
+
+  - use start/cloud-init to install Docker on new nodes
+  - `docker swarm join`
+  - hi-five a co-worker

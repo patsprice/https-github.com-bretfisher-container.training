@@ -14,6 +14,8 @@ name: logging
 
 - We will update our services to send logs through the GELF logging driver
 
+- Learn about the [GELF format and driver on Docker's blog](https://blog.docker.com/2017/02/adventures-in-gelf/)
+
 ---
 
 # Setting up ELK to store container logs
@@ -181,21 +183,23 @@ class: elk-auto
 
 - We will use a stack file
 
+- Even better, we'll use a community project "[docker-elk](https://github.com/deviantony/docker-elk)" 
+by [@tony_lapenna](https://twitter.com/tony_lapenna) of Portainer fame
+
+- We've sub-moduled' the git repo, so let's deploy plug-n-play style 
+
 .exercise[
 
-- Build, ship, and run our ELK stack:
+- Deploy our ELK stack with our own custom override file!:
   ```bash
-  docker-compose -f elk.yml build
-  docker-compose -f elk.yml push
-  docker stack deploy -c elk.yml elk
+  cd ~/container.training/stacks/docker-elk
+  docker stack deploy -c docker-stack.yml -c ../elk.override.yml elk
   ```
 
 ]
 
-Note: the *build* and *push* steps are not strictly necessary, but they don't hurt!
-
 Let's have a look at the [Compose file](
-https://@@GITREPO@@/blob/master/stacks/elk.yml).
+https://github.com/deviantony/docker-elk/blob/539b5b8fc39fc4109bef69aee1d6005d5c10e9e7/docker-stack.yml).
 
 ---
 
@@ -277,7 +281,7 @@ The test message should show up as well in the logstash container logs.
 In fact, *multiple messages will show up, and continue to show up every few seconds!*
 
 ---
-
+class: extra-details
 ## Restart conditions
 
 - By default, if a container exits (or is killed with `docker kill`, or runs out of memory ...),
@@ -317,22 +321,18 @@ You can also set `--restart-delay`, `--restart-max-attempts`, and `--restart-win
 
 ## "Configuring" Kibana
 
-- If you see a status page with a yellow item, wait a minute and reload
-  (Kibana is probably still initializing)
+- Kibana should offer you to "Configure an index pattern"
 
-- Kibana should offer you to "Configure an index pattern":
-  <br/>in the "Time-field name" drop down, select "@timestamp", and hit the
-  "Create" button
+- Once it's received data, it can try to help you create an index
 
-- Then:
+- Type `logstash*` in the input, then in the "Time-field name" drop down, 
+select "@timestamp", and hit the "Create" button
 
   - click "Discover" (in the top-left corner)
-  - click "Last 15 minutes" (in the top-right corner)
-  - click "Last 1 hour" (in the list in the middle)
   - click "Auto-refresh" (top-right corner)
   - click "5 seconds" (top-left of the list)
 
-- You should see a series of green bars (with one new green bar every minute)
+- You should see a series of green bars. We can now tinker with fields on left
 
 ---
 
@@ -382,20 +382,6 @@ After ~15 seconds, you should see the log messages in Kibana.
 -->
 
 ]
-
----
-
-## .warning[Don't update stateful services!]
-
-- What would have happened if we had updated the Redis service?
-
-- When a service changes, SwarmKit replaces existing container with new ones
-
-- This is fine for stateless services
-
-- But if you update a stateful service, its data will be lost in the process
-
-- If we updated our Redis service, all our DockerCoins would be lost
 
 ---
 

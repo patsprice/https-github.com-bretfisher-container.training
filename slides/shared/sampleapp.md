@@ -17,7 +17,7 @@ fi
 
 - Clone the repository on `node1`:
   ```bash
-  git clone https://@@GITREPO@@
+  git clone --recursive https://@@GITREPO@@
   ```
 
 ]
@@ -32,9 +32,9 @@ Let's start this before we look around, as downloading will take a little time..
 
 .exercise[
 
-- Go to the `dockercoins` directory, in the cloned repo:
+- Go to the `stacks` directory, in the cloned repo:
   ```bash
-  cd ~/container.training/dockercoins
+  cd ~/container.training/stacks
   ```
 
 - Use Compose to build and run all containers:
@@ -100,7 +100,7 @@ and displays aggregated logs.
 
 - These 5 services are visible in the application's Compose file,
   [docker-compose.yml](
-  https://@@GITREPO@@/blob/master/dockercoins/docker-compose.yml)
+  https://@@GITREPO@@/blob/dockercon19/stacks/docker-compose.yml)
 
 ---
 
@@ -185,6 +185,8 @@ class: extra-details
 
 ---
 
+class: extra-details
+
 ## Show me the code!
 
 - You can check the GitHub repository with all the materials of this workshop:
@@ -227,6 +229,8 @@ class: extra-details
 - There are other minor differences, but upgrade is easy and straightforward
 
 ---
+
+class: extra-details
 
 ## Our application at work
 

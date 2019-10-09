@@ -2,15 +2,17 @@
 
 - We want to make changes to the web UI
 
-- The process is as follows:
+- The process in the Real World is as follows:
 
   - edit code
 
   - build new image
 
-  - ship new image
+  - ship new image to registry
 
-  - run new image
+  - deploy (run) new image
+
+Today we're just going to use different image versions that were pre-built
 
 ---
 
@@ -18,12 +20,7 @@
 
 - To update a single service, we could do the following:
   ```bash
-  export REGISTRY=127.0.0.1:5000
-  export TAG=v0.2
-  IMAGE=$REGISTRY/dockercoins_webui:$TAG
-  docker build -t $IMAGE webui/
-  docker push $IMAGE
-  docker service update dockercoins_webui --image $IMAGE
+  docker service update dockercoins_webui --image dogvscat/webui:v0.2
   ```
 
 - Make sure to tag properly your images: update the `TAG` at each iteration
@@ -34,14 +31,10 @@
 
 ## Updating services with `stack deploy`
 
-- With the Compose integration, all we have to do is:
+- With Stacks, all we have to do is edit the stack file and update the version, then:
   ```bash
-  export TAG=v0.2
-  docker-compose -f composefile.yml build
-  docker-compose -f composefile.yml push
   docker stack deploy -c composefile.yml nameofstack
   ```
-
 --
 
 - That's exactly what we used earlier to deploy the app
@@ -50,39 +43,27 @@
 
 - It will diff each service and only update ones that changed
 
+--
+
+- For automation, set environment variables for each image tag and then:
+  ```bash
+  export WEBUI_TAG=v0.2
+  docker stack deploy -c composefile.yml nameofstack
+  ```
+
 ---
 
-## Changing the code
+## Deploy our changes
 
 - Let's make the numbers on the Y axis bigger!
 
-.exercise[
-
-- Update the size of text on our webui:
-  ```bash
-  sed -i "s/15px/50px/" dockercoins/webui/files/index.html
-  ```
-
-]
-
----
-
-## Build, ship, and run our changes
-
-- Four steps:
-
-  1. Set (and export!) the `TAG` environment variable
-  2. `docker-compose build`
-  3. `docker-compose push`
-  4. `docker stack deploy`
+- We need to deploy `dogvscat/webui:v0.2`
 
 .exercise[
 
 - Build, ship, and run:
   ```bash
   export TAG=v0.2
-  docker-compose -f dockercoins.yml build
-  docker-compose -f dockercoins.yml push
   docker stack deploy -c dockercoins.yml dockercoins
   ```
 
@@ -94,7 +75,7 @@
 
 ## Viewing our changes
 
-- Wait at least 10 seconds (for the new version to be deployed)
+- Wait at least 10 seconds (for the new version to be pulled and deployed)
 
 - Then reload the web UI
 

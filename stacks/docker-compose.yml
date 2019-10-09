@@ -2,17 +2,14 @@ version: "3"
 
 services:
   rng:
-    build: dockercoins/rng
     image: dogvscat/rng:${TAG-latest}
     deploy:
       mode: global
 
   hasher:
-    build: dockercoins/hasher
     image: dogvscat/hasher:${TAG-latest}
 
   webui:
-    build: dockercoins/webui
     image: dogvscat/webui:${TAG-latest}
     ports:
     - "8000:80"
@@ -21,7 +18,6 @@ services:
     image: redis
 
   worker:
-    build: dockercoins/worker
     image: dogvscat/worker:${TAG-latest}
     deploy:
       replicas: 10

@@ -6,7 +6,7 @@ A quick note about continuous integration and deployment
 
 - This lab won't have you building out CI/CD pipelines
 
-- We're cheating a bit by building images on server hosts and not in CI tool
+- We're cheating a bit by using only pre-built images on server hosts and not in CI tool
 
 - Docker and orchestration works with all the CI and deployment tools
 

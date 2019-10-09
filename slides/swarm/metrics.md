@@ -1151,18 +1151,17 @@ class: prom-auto
 
 - We will use a stack definition (once again)
 
+- We will borrow from the community! (once again)
+
+- [Stefan Prodan](https://twitter.com/stefanprodan) maintains the excellent 
+["Swarm Prom" repo](https://github.com/stefanprodan/swarmprom)
+
 .exercise[
 
 - Make sure we are in the stacks directory:
   ```bash
-  cd ~/container.training/stacks
-  ```
-
-- Build, ship, and run the Prometheus stack:
-  ```bash
-  docker-compose -f prometheus.yml build
-  docker-compose -f prometheus.yml push
-  docker stack deploy -c prometheus.yml prometheus
+  cd ~/container.training/stacks/swarmprom
+  docker stack deploy -c docker-compose.yml prom
   ```
 
 ]
@@ -1179,11 +1178,13 @@ class: prom
 
 - Open port 9090 with your browser
 
+- login in with `admin/admin`
+
 - Click on "status", then "targets"
 
 ]
 
-You should see 7 endpoints (3 cadvisor, 3 node, 1 prometheus).
+You should see 10 endpoints (3 cadvisor, 3 dockerd, 3 node, 1 prometheus).
 
 Their state should be "UP".
 
@@ -1195,7 +1196,7 @@ class: prom-auto, config
 
 (New in Docker Engine 17.06)
 
-- We are creating a custom image *just to inject a configuration*
+- Previously, we often created a custom image *just to inject a configuration file*
 
 - Instead, we could use the base Prometheus image + a `config` 
 
@@ -1237,7 +1238,7 @@ class: prom-auto, config
 
 ## Deploying Prometheus with a `config`
 
-The following Compose file (`prometheus+config.yml`) achieves
+The Compose file we used (`./stacks/swarmprom/docker-compose.yml`) achieves
 the same result, but by using a `config` instead of baking the
 configuration into the image.
 
@@ -1247,19 +1248,18 @@ version: "3.3"
 
 services:
 
-prometheus:
-  image: prom/prometheus:v1.4.1 
-  ports:
-    - "9090:9090"
-  configs:
-    - source: prometheus
-      target: /etc/prometheus/prometheus.yml
-
-...
+  prometheus:
+    configs:
+    - source: node_rules
+      target: /etc/prometheus/swarm_node.rules.yml
+    - source: task_rules
+      target: /etc/prometheus/swarm_task.rules.yml
 
 configs:
-  prometheus:
-    file: ../prom/prometheus.yml
+  node_rules:
+    file: ./prometheus/rules/swarm_node.rules.yml
+  task_rules:
+    file: ./prometheus/rules/swarm_task.rules.yml
 ```
 ]
 
@@ -1289,27 +1289,6 @@ class: prom-auto, config
 
 class: prom-auto, config
 
-## Re-deploying Prometheus with a config
-
-- We will update the existing stack using `prometheus+config.yml`
-
-.exercise[
-
-- Redeploy the `prometheus` stack:
-  ```bash
-  docker stack deploy -c prometheus+config.yml prometheus
-  ```
-
-- Check that Prometheus still works as intended
-
-  (By connecting to any node of the cluster, on port 9090)
-
-]
-
----
-
-class: prom-auto, config
-
 ## Accessing the config object from the CLI
 
 - Config objects can be viewed from the Docker CLI (or API)
@@ -1323,7 +1302,7 @@ class: prom-auto, config
 
 - View details about our config object:
   ```bash
-  docker config inspect prometheus_prometheus
+  docker config inspect prom_node_rules
   ```
 
 ]
@@ -1344,12 +1323,12 @@ class: prom-auto, config
 
 - Extract the BASE64 payload with `jq`:
   ```bash
-  docker config inspect prometheus_prometheus | jq -r .[0].Spec.Data
+  docker config inspect prom_node_rules | jq -r .[0].Spec.Data
   ```
 
 - Decode it with `base64 -d`:
   ```bash
-  docker config inspect prometheus_prometheus | jq -r .[0].Spec.Data | base64 -d
+  docker config inspect prom_node_rules | jq -r .[0].Spec.Data | base64 -d
   ```
 
 ]
@@ -1381,7 +1360,7 @@ class: prom
 
 ---
 
-class: prom
+class: prom, extra-details
 
 ## Building the query from scratch
 
@@ -1398,6 +1377,7 @@ class: prom
 ---
 
 class: prom
+class: prom, extra-details
 
 ## Displaying a raw metric for *all* containers
 
@@ -1420,6 +1400,7 @@ class: prom
 ---
 
 class: prom
+class: prom, extra-details
 
 ## Selecting metrics for a specific service
 
@@ -1442,6 +1423,7 @@ class: prom
 ---
 
 class: prom
+class: prom, extra-details
 
 ## Turn counters into rates
 
@@ -1467,6 +1449,7 @@ class: prom
 ---
 
 class: prom
+class: prom, extra-details
 
 ## Aggregate multiple data series
 
@@ -1483,6 +1466,7 @@ class: prom
 ---
 
 class: prom
+class: prom, extra-details
 
 ## Collapse dimensions
 
@@ -1623,6 +1607,46 @@ class: prom, snap
 ]
 
 *Adjusting units is left as an exercise for the reader.*
+
+---
+
+class: prom
+
+## Checking out the rest of "swarmprom"
+
+- Grafana ia a analytics and graphing dashboard that works well with Prometheus
+
+
+
+.exercise[
+
+- Open port 3000 with your browser
+
+- login in with `admin/admin` (click skip when asked to change password)
+
+- Click on "Home", then "Docker Swarm Nodes"
+
+- Check out the pretty pretty lights!
+
+- Click on "Home", then "Docker Swarm Services"
+
+]
+
+---
+
+class: prom
+
+## Even more in "swarmprom"?
+
+- Yea lots more with [this community project](https://github.com/stefanprodan/swarmprom):
+
+- Alert Manager (sends metric alerts to email, Slack, PagerDuty, etc.): port 9093
+
+- Unsee (alerts dashboard): port 9094
+
+- Caddy (for reverse proxy with auth!)
+
+- Metrics collectors (node-exporter, cadvisor, and dockerd-exporter)
 
 ---
 

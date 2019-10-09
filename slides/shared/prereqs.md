@@ -70,7 +70,7 @@ class: in-person, pic
 
 ---
 
-class: in-person
+class: in-person, extra-details
 
 ## You get a cluster of cloud VMs
 
@@ -86,7 +86,7 @@ class: in-person
 
 ---
 
-class: in-person
+class: in-person, extra-details
 
 ## Why don't we run containers locally?
 
@@ -107,7 +107,7 @@ class: in-person
 
 ---
 
-class: in-person
+class: in-person, extra-details
 
 ## SSH clients
 

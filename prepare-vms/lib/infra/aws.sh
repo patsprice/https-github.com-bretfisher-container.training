@@ -21,7 +21,7 @@ infra_start() {
     COUNT=$1
 
     # Print our AWS username, to ease the pain of credential-juggling
-    greet
+    # greet
 
     # Upload our SSH keys to AWS if needed, to be added to each VM's authorized_keys
     key_name=$(sync_keys)

@@ -1,41 +1,4 @@
-# Controlling Docker from a container
-
-- In a local environment, just bind-mount the Docker control socket:
-  ```bash
-  docker run -ti -v /var/run/docker.sock:/var/run/docker.sock docker
-  ```
-
-- Otherwise, you have to:
-
-  - set `DOCKER_HOST`,
-  - set `DOCKER_TLS_VERIFY` and `DOCKER_CERT_PATH` (if you use TLS),
-  - copy certificates to the container that will need API access.
-
-More resources on this topic:
-
-- [Do not use Docker-in-Docker for CI](
-  https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)
-- [One container to rule them all](
-  https://jpetazzo.github.io/2016/04/03/one-container-to-rule-them-all/)
-
----
-
-## Bind-mounting the Docker control socket
-
-- In Swarm mode, bind-mounting the control socket gives you access to the whole cluster
-
-- You can tell Docker to place a given service on a manager node, using constraints:
-  ```bash
-    docker service create \
-      --mount source=/var/run/docker.sock,type=bind,target=/var/run/docker.sock \
-      --name autoscaler --constraint node.role==manager ...
-  ```
-
----
-
-## Constraints and global services
-
-(New in Docker Engine 1.13)
+# Constraints and global services
 
 - By default, global services run on *all* nodes
   ```bash
@@ -55,8 +18,6 @@ More resources on this topic:
 
 ## Constraints and dynamic scheduling
 
-(New in Docker Engine 1.13)
-
 - If constraints change, services are started/stopped accordingly
 
   (e.g., `--constraint node.role==manager` and nodes are promoted/demoted)
@@ -70,6 +31,8 @@ More resources on this topic:
   ```
 
 ---
+
+class: extra-details
 
 ## Shortcomings of dynamic scheduling
 

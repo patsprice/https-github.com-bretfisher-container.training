@@ -2,7 +2,6 @@
 
 - Engine 18.09
 - Compose 1.23
-- Machine 0.16
 
 .exercise[
 
@@ -10,16 +9,16 @@
   ```bash
   docker version
   docker-compose -v
-  docker-machine -v
   ```
 
 ]
 
 ---
 
-## Wait, what, 18.09 ?!?
+class: extra-details
 
---
+## Wait, what, 17.12 ?!?
+
 
 - Docker 1.13 = Docker 17.03 (year.month, like Ubuntu)
 
@@ -73,7 +72,7 @@ class: extra-details
 
 ---
 
-class: pic
+class: pic, extra-details
 
 ![Docker CE/EE release cycle](images/docker-ce-ee-lifecycle.png)
 
@@ -97,3 +96,4 @@ class: pic
 | 2017 | 17.12 | containerd, Hyper-V isolation, Windows routing mesh
 | 2018 | 18.03 | Templates for secrets/configs, multi-yaml stacks, LCOW
 | 2018 | 18.03 | Stack deploy to Kubernetes, `docker trust`, tmpfs, manifest CLI
+| 2018 | 18.06+| Scaling/perf improvements and more in [Future of Swarm blog post](https://www.bretfisher.com/the-future-of-docker-swarm/)

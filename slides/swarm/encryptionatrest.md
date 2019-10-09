@@ -2,7 +2,7 @@
 
 - Swarm data is always encrypted
 
-- A Swarm cluster can be "locked"
+- A Swarm cluster can be "locked" with `docker swarm update --autolock=true`
 
 - When a cluster is "locked", the encryption key is protected with a passphrase
 
@@ -17,6 +17,8 @@
   - some vulnerabilities (like path traversal)
 
 ---
+
+class: extra-details
 
 ## Locking a Swarm cluster
 
@@ -35,6 +37,7 @@ This will display the unlock key. Copy-paste it somewhere safe.
 
 ---
 
+class: extra-details
 ## Locked state
 
 - If we restart a manager, it will now be locked
@@ -53,6 +56,7 @@ that you [provisioned yourself](https://@@GITREPO@@/tree/master/prepare-machine)
 
 ---
 
+class: extra-details
 ## Checking that our node is locked
 
 - Manager commands (requiring access to crypted data) will fail
@@ -76,6 +80,7 @@ that you [provisioned yourself](https://@@GITREPO@@/tree/master/prepare-machine)
 
 ---
 
+class: extra-details
 ## Checking node state in scripts
 
 - The state of the node shows up in the output of `docker info`
@@ -96,6 +101,7 @@ that you [provisioned yourself](https://@@GITREPO@@/tree/master/prepare-machine)
 
 ---
 
+class: extra-details
 ## Unlocking a node
 
 - You will need the secret token that we obtained when enabling auto-lock earlier
@@ -137,6 +143,7 @@ Note: if somebody steals both your disks and your key, .strike[you're doomed! Do
 
 ---
 
+class: extra-details
 ## Unlocking the cluster permanently
 
 - If you want to remove the secret key, disable auto-lock
