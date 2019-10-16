@@ -1,8 +1,8 @@
 class: btp-manual
 
-## Integration with Compose
+## Higher Levels of Abstraction
 
-- We saw how to manually build, tag, and push images to a registry
+- We saw how to manually create Swarm networks and services
 
 - But ...
 
@@ -18,17 +18,27 @@ class: btp-manual
 
 class: btp-manual
 
-- Let's see how we can streamline this process!
+- Let's see how we can streamline this process with YAML and a single command!
 
 ---
 
 # Swarm Stacks
 
-- Compose is great for local development
+- Stacks use YAML files to control all Swarm resource types
+
+--
+
+- One YAML file can deploy/update services, networks, volumes, secrets, configs
+
+--
+
+- Compose (the CLI tool) is great for local development, and build/push of images
 
 - It can also be used to manage image lifecycle
 
   (i.e. build images and push them to a registry)
+
+--
 
 - Compose files *v2* are great for local development
 
@@ -38,21 +48,27 @@ class: btp-manual
 
 ## Compose file version 3
 
-(New in Docker Engine 1.13)
+(New in Docker Engine 17.03)
 
 - Almost identical to version 2, but with extra key:value features
 
+--
+
 - Can be directly used by a Swarm cluster through `docker stack ...` commands
+
+--
+
+- Can be used with Kubernetes by adding the Docker "compose-on-kubernetes" service
+
+--
+
+- Can still be used with docker-compose for local dev/test
+
+--
 
 - Introduces a `deploy` section to pass Swarm-specific parameters
 
-- Resource limits are moved to this `deploy` section
-
 - See [here](https://github.com/docker/docker.github.io/blob/master/compose/compose-file/compose-versioning.md#upgrading) for the complete list of changes
-
-- Supersedes *Distributed Application Bundles*
-
-  (JSON payload describing an application; could be generated from a Compose file)
 
 ---
 
@@ -60,11 +76,17 @@ class: btp-manual
 
 - All stack manipulation commands start with `docker stack`
 
+--
+
 - Under the hood, they map to `docker service` commands
+
+--
 
 - Stacks have a *name* (which also serves as a namespace)
 
 - Stacks are specified with the aforementioned Compose file format version 3
+
+--
 
 .exercise[
 
@@ -106,11 +128,15 @@ Our dockercoins is not *exactly* identical to the ones deployed with `docker ser
 
 - Each stack gets its own overlay network
 
+--
+
 - Services of the stack are connected to this network
   <br/>(unless specified differently in the Compose file)
 
 - Services get network aliases matching their name in the Compose file
   <br/>(just like when Compose brings up an app specified in a v2 file)
+
+--
 
 - Services are explicitly named `<stack_name>_<service_name>`
 
@@ -190,6 +216,8 @@ The curl command should now output:
 
 ---
 
+class: btp-auto
+
 ## Building and pushing stack services
 
 - When using Compose file version 2 and above, you can specify *both* `build` and `image`
@@ -232,23 +260,27 @@ Let's have a look at the `dockercoins.yml` file while this is building and pushi
 
 ---
 
+## Swarm and Compose play nice together
+
+- Notice `build:` (used by docker-compose only)
+
+- Also notice `deploy:` (used by Swarm only)
+
 ```yaml
 version: "3"
-
 services:
   rng:
-    build: dockercoins/rng
-    image: ${REGISTRY-127.0.0.1:5000}/rng:${TAG-latest}
+    build: dogvscat/rng
+    image: dogvscat/rng:${TAG-latest}
     deploy:
       mode: global
-  ...
+     
   redis:
     image: redis
-  ...
+     
   worker:
-    build: dockercoins/worker
-    image: ${REGISTRY-127.0.0.1:5000}/worker:${TAG-latest}
-    ...
+    build: dogvscat/worker
+    image: dogvscat/worker:${TAG-latest}
     deploy:
       replicas: 10
 ```
@@ -274,8 +306,6 @@ We can now connect to any of our nodes on port 8000, and we will see the familia
 
 ---
 
-class: extra-details
-
 ## Good to know ...
 
 - Compose file version 3 adds the `deploy` section
@@ -295,6 +325,8 @@ class: extra-details
   (But you can use `docker-compose config` to "flatten" your configuration)
 
 ---
+
+class: extra-details
 
 ## Summary
 

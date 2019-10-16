@@ -1,8 +1,7 @@
 ## Versions installed
 
-- Kubernetes 1.15.3
-- Docker Engine 19.03.1
-- Docker Compose 1.24.1
+- Kubernetes 1.16.2
+- Docker Engine 19.03.3
 
 <!-- ##VERSION## -->
 
@@ -12,7 +11,6 @@
   ```bash
   kubectl version
   docker version
-  docker-compose -v
   ```
 
 ]
@@ -23,7 +21,7 @@ class: extra-details
 
 ## Kubernetes and Docker compatibility
 
-- Kubernetes 1.15 validates Docker Engine versions [up to 18.09](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.15.md#dependencies)
+- Kubernetes 1.16 validates Docker Engine versions [up to 18.09](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.15.md#dependencies)
   <br/>
   (the latest version when Kubernetes 1.14 was released)
 

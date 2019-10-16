@@ -14,15 +14,17 @@ A quick note about continuous integration and deployment
 
 ## CI/CD general process 
 
-- Have your CI build your images, run tests *in them*, then push to registry
+- Have your CI build your images, run tests *in them* (docker-compose is good for this)
 
-- If you security scan, do it then on your images after tests but before push
+- If you security scan, do it then on your images after tests
+
+- After success, it pushes to registry. These "build artifacts" are ready for deployment
 
 - Optionally, have CI do continuous deployment if build/test/push is successful
 
-- CD tool would SSH into nodes, or use docker cli against remote engine
+- CD tool would SSH into nodes and use docker/swarm/kubernetes CLI, or use remotely
 
-- If supported, it could use docker engine TCP API (swarm API is built-in)
+- If supported, it could use docker/swarm/kubernetes API remotely
 
 - Docker KBase [Development Pipeline Best Practices](https://success.docker.com/article/dev-pipeline)
 

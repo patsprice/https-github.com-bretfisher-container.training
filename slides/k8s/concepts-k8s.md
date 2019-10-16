@@ -10,7 +10,7 @@
 
 ---
 
-## Basic things we can ask Kubernetes to do
+## Basic things Swarm/Kubernetes can do
 
 --
 
@@ -44,21 +44,40 @@
 
 ## Other things that Kubernetes can do for us
 
-- Basic autoscaling
+- Swarm does most of this with 3rd party tools, but Kubernetes has it built in
+
+--
+
+- Basic container autoscaling
+
+--
 
 - Blue/green deployment, canary deployment
 
-- Long running services, but also batch (one-off) jobs
+--
+
+- Run distrubed CRON jobs, but also batch (one-off) jobs
+
+--
 
 - Overcommit our cluster and *evict* low-priority jobs
 
+--
+
 - Run services with *stateful* data (databases etc.)
+
+--
 
 - Fine-grained access control defining *what* can be done by *whom* on *which* resources
 
+--
+
 - Integrating third party services (*service catalog*)
 
+--
+
 - Automating complex tasks (*operators*)
+
 
 ---
 
@@ -136,8 +155,6 @@ class: pic
 
 ---
 
-class: extra-details
-
 ## Running the control plane on special nodes
 
 - It is common to reserve a dedicated node for the control plane
@@ -160,8 +177,6 @@ class: extra-details
 
 ---
 
-class: extra-details
-
 ## Running the control plane outside containers
 
 - The services of the control plane can run in or out of containers
@@ -181,8 +196,6 @@ class: extra-details
 
 ---
 
-class: extra-details
-
 ## Do we need to run Docker at all?
 
 No!
@@ -191,15 +204,11 @@ No!
 
 - By default, Kubernetes uses the Docker Engine to run containers
 
-- We could also use `rkt` ("Rocket") from CoreOS
 
-- Or leverage other pluggable runtimes through the *Container Runtime Interface*
+- Or use other runtimes through the *Container Runtime Interface*: CRI-O, or containerd
 
-  (like CRI-O, or containerd)
-
+- Note: you might hear of `rkt` ("Rocket") but it's obsolete
 ---
-
-class: extra-details
 
 ## Do we need to run Docker at all?
 
@@ -207,9 +216,7 @@ Yes!
 
 --
 
-- In this workshop, we run our app on a single node first
-
-- We will need to build images and ship them around
+- Docker is easiest runtime to use, and also builds images
 
 - We can do these things without Docker
   <br/>
@@ -222,8 +229,6 @@ Yes!
 .footnote[¹[Not Invented Here](https://en.wikipedia.org/wiki/Not_invented_here)]
 
 ---
-
-class: extra-details
 
 ## Do we need to run Docker at all?
 
@@ -264,6 +269,8 @@ class: pic
 ![Node, pod, container](images/k8s-arch3-thanks-weave.png)
 
 ---
+
+class: extra-details
 
 ## Credits
 

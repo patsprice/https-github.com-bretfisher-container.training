@@ -38,7 +38,7 @@
 
   - Requires more resources, management, people, and skills to run yourself
   
-  - But every cloud offers a distribution to take the pain away
+  - But every cloud offers a distribution to take *some* pain away
 
   - Also supports more use cases, features, methodologies, and workflows then Swarm
 
@@ -94,6 +94,7 @@
 
 - Teams have left Swarm for Kubernetes, vice versa, or even run both side-by-side
 
+
 - There is no one-size fits-all solution
 
 ---
@@ -104,7 +105,7 @@
 
 --
   
-  - Swarm is far from dead and Kubernetes is not the only option
+  - Swarm is not dead and Kubernetes is not the only option
 
 --
   
@@ -114,15 +115,21 @@
 
 --
 
-  - Kubernetes now supports Windows and is slowly getting easier
+- Kubernetes: bleeding edge of infrastructure automation and experimentation
 
-  - It's the bleeding edge of infrastructure automation and experimentation
+- New features refine expirence, getting more stable
+
+- Kubernetes now supports Windows Server 2019
+
 
 --
 
-  - Swarm is slowly getting more features
+- Similar to Apple, it waits for others to innovate, then makes things easier
+
+- Swarm is slowly getting more features
+
+- Docker's tight partnership with Microsoft: Windows Server 2016+ support
   
-  - Similar to Apple, it waits for others to innovate, then makes things easier
 
 ---
 
@@ -156,7 +163,7 @@
 
 --
 
-  - Rancher founder said "trying to make K8s as easy as Swarm"
+  - Rancher founder said K3s is "trying to make K8s as easy as Swarm"
 
 ---
 
@@ -169,7 +176,7 @@
   
 --
 
-  - DockerCon: People love Swarm *and* Kubernetes for different reasons. Mostly developer audience
+  - DockerCon: People love Swarm *and* Kubernetes for different reasons
   
 --
 
@@ -181,14 +188,12 @@
   
 --
 
-  - KubeCon: Vibe is Kubernetes is only option. Mostly operators and sysadmins
-  
---
-
   - Kubernetes is mostly developed by Google and RedHat
 
 --
 
   - Thousands of people are paid to promote Kubernetes across the whole industry
   
+--
 
+  - KubeCon: 10k ppl, more ops focused. DockerCon: 5k ppl, more dev focused
