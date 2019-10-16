@@ -3,11 +3,11 @@ title: |
   with Docker, Swarm, and
   Kubernetes
 
-chat: "[Slack](https://revolutionconf.slack.com/messages/CJW0EQYRZ/)"
+chat: "[Docker Mastery Slack](https://dockermastery.slack.com/messages/CPC8ML6PJ/)"
 
 gitrepo: github.com/bretfisher/container.training
 
-slides: https://revconf19.bretfisher.com
+slides: https://gotober19.bretfisher.com
 
 exclude:
 - self-paced
@@ -21,7 +21,7 @@ exclude:
 
 chapters:
 - shared/title.md
-- logistics-bret-2.md
+- logistics-bret.md
 - shared/about-slides.md
 - shared/toc.md
 - - shared/prereqs.md

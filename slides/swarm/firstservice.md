@@ -466,9 +466,9 @@ class: pic
 
 - Two common open source options:
 
-  - [Traefik](https://traefik.io/) - popular, many features, requires running on managers, 
-  needs key/value for HA
-  
+  - [Traefik](https://traefik.io/) - popular, many features, built-in Let's Encrypt, 
+   created for Cloud Native
+
   - [Docker Flow Proxy](http://proxy.dockerflow.com/) - uses HAProxy, made for 
   Swarm by Docker Captain [@vfarcic](https://twitter.com/vfarcic)
 
@@ -506,10 +506,6 @@ class: btw-labels, extra-details
 - This gives you native performance (no iptables, no proxy, no nothing!)
 
 - The load balancer will "see" the clients' IP addresses
-
-- But: a container cannot simultaneously be in the `host` network and another network
-
-  (You will have to route traffic to containers using exposed ports or UNIX sockets)
 
 ---
 

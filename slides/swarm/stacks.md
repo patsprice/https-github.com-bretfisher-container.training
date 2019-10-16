@@ -40,7 +40,7 @@ class: btp-manual
 
 (New in Docker Engine 1.13)
 
-- Almost identical to version 2
+- Almost identical to version 2, but with extra key:value features
 
 - Can be directly used by a Swarm cluster through `docker stack ...` commands
 
@@ -271,27 +271,6 @@ class: btp-auto
 ]
 
 We can now connect to any of our nodes on port 8000, and we will see the familiar hashing speed graph.
-
----
-
-## Maintaining multiple environments
-
-There are many ways to handle variations between environments.
-
-- Compose loads `docker-compose.yml` and (if it exists) `docker-compose.override.yml`
-
-- Compose can load alternate file(s) by setting the `-f` flag or the `COMPOSE_FILE` environment variable
-
-- Compose files can *extend* other Compose files, selectively including services:
-
-  ```yaml
-    web:
-      extends:
-        file: common-services.yml
-        service: webapp
-  ```
-
-See [this documentation page](https://docs.docker.com/compose/extends/) for more details about these techniques.
 
 ---
 

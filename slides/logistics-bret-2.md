@@ -18,10 +18,9 @@
  - I'm Bret [@bretfisher](https://twitter.com/bretfisher), I like .emoji[☕🥂🏖️🥃🏋️‍♂️🐳]
    - I do things at https://bretfisher.com
    - Docker Captain, Udemy Course Author, DevOps Consultant, Meetup Organizer
-   - I spend 100% helping people with Docker and container tools
+   - I spend 100% helping people with container tools
 
 - Feel free to interrupt for questions at any time
 
-- Live feedback, questions, help in @@CHAT@@
+- Live feedback, questions, help in Docker Mastery Slack ([Signup](https://chat.dockermastery.com), then goto [#gotober19](https://dockermastery.slack.com/messages/CPC8ML6PJ/))
 
-- For later, join my Docker community at https://chat.dockermastery.com
