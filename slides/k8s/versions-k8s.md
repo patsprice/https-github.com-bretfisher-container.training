@@ -1,6 +1,6 @@
 ## Versions installed
 
-- Kubernetes 1.16.2
+- Kubernetes 1.15.4 (latest is 1.16.2 but we're using 1.15 for... reasons)
 - Docker Engine 19.03.3
 
 <!-- ##VERSION## -->

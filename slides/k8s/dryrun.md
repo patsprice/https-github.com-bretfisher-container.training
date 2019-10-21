@@ -60,7 +60,7 @@
 
 - Generate the YAML for a Deployment without creating it:
   ```bash
-  kubectl create deployment web --image nginx --dry-run
+  kubectl create deployment web --image nginx -o yaml --dry-run
   ```
 
 ]
@@ -71,71 +71,16 @@
 
 ---
 
-## Using `--dry-run` with `kubectl apply`
-
-- The `--dry-run` option can also be used with `kubectl apply`
-
-- However, it can be misleading (it doesn't do a "real" dry run)
-
-- Let's see what happens in the following scenario:
-
-  - generate the YAML for a Deployment
-
-  - tweak the YAML to transform it into a DaemonSet
-
-  - apply that YAML to see what would actually be created
-
----
-
-## The limits of `kubectl apply --dry-run`
-
-.exercise[
-
-- Generate the YAML for a deployment:
-  ```bash
-  kubectl create deployment web --image=nginx -o yaml > web.yaml
-  ```
-
-- Change the `kind` in the YAML to make it a `DaemonSet`:
-  ```bash
-  sed -i s/Deployment/DaemonSet/ web.yaml
-  ```
-
-- Ask `kubectl` what would be applied:
-  ```bash
-  kubectl apply -f web.yaml --dry-run --validate=false -o yaml
-  ```
-
-]
-
-The resulting YAML doesn't represent a valid DaemonSet.
-
----
-
 ## Server-side dry run
 
 - Since Kubernetes 1.13, we can use [server-side dry run and diffs](https://kubernetes.io/blog/2019/01/14/apiserver-dry-run-and-kubectl-diff/)
 
-- Server-side dry run will do all the work, but *not* persist to etcd
+- This is a big deal when using `kubectl apply -f` on the same YAML file over and over
 
-  (all validation and mutation hooks will be executed)
-
-.exercise[
-
-- Try the same YAML file as earlier, with server-side dry run:
-  ```bash
-  kubectl apply -f web.yaml --server-dry-run --validate=false -o yaml
-  ```
-
-]
-
-The resulting YAML doesn't have the `replicas` field anymore.
-
-Instead, it has the fields expected in a DaemonSet.
-
+- It outputs a list of resources and if they were created or updated
 ---
 
-## Advantages of server-side dry run
+## Advantages of server-side dry run over normal dry run
 
 - The YAML is verified much more extensively
 
@@ -144,8 +89,6 @@ Instead, it has the fields expected in a DaemonSet.
 - YAML that passes server-side dry run *should* apply successfully
 
   (unless the cluster state changes by the time the YAML is actually applied)
-
-- Validating or mutating hooks that have side effects can also be an issue
 
 ---
 
@@ -159,12 +102,13 @@ Instead, it has the fields expected in a DaemonSet.
 
 - Try `kubectl diff` on the YAML that we tweaked earlier:
   ```bash
-  kubectl diff -f web.yaml
+  kubectl apply -f https://bret.run/app.yml
+  kubectl diff -f https://bret.run/appdiff.yml
   ```
 
 ]
 
-Note: we don't need to specify `--validate=false` here.
+- Yep `kubectl` can use URL's for YAML!
 
 ---
 
@@ -186,7 +130,7 @@ Note: we don't need to specify `--validate=false` here.
 
 - This workflow is sometimes called "GitOps"
 
-  (there are tools like Weave Flux or GitKube to facilitate it)
+  (there are tools like Weave Flux, GitKube, or Jenkins X to facilitate it)
 
 ---
 

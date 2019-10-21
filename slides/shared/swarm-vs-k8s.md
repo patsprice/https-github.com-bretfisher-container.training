@@ -111,7 +111,7 @@
   
   - Kubernetes can be complex but distributions make it easier
 
-    - Some pride themselves on using upstream... why??
+- Some pride themselves on using upstream "Vanilla Kubernetes"... why??
 
 --
 
@@ -124,9 +124,7 @@
 
 --
 
-- Similar to Apple, it waits for others to innovate, then makes things easier
-
-- Swarm is slowly getting more features
+- Swarm is slowly getting more features, but is dwarfed by k8s options
 
 - Docker's tight partnership with Microsoft: Windows Server 2016+ support
   
@@ -143,7 +141,7 @@
 
 --
 
-  - Also, not to be used directly, but rather by higher level abstractions (like the distributions)
+  - Not to be used directly, but rather by higher level abstractions (distributions)
 
 --
 

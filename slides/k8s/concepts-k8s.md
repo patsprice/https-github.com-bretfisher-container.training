@@ -4,9 +4,11 @@
 
 - It runs and manages containerized applications on a cluster
 
+- Often this is simply called "container orchestration", or just "orchestration"
+
 --
 
-- What does that really mean?
+- Sometimes shortened to Kube or K8s ("Kay-eights" or "Kates")
 
 ---
 

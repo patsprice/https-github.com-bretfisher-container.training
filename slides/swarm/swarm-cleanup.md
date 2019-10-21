@@ -14,7 +14,16 @@
 
 ]
 
-- Let's remove Swarm
+---
+
+## Shutdown Swarm
+
+- Let's disable Swarm in Docker (but leave Docker running for Kubernetes)
+- For node2/3 we need to:
+  - demote to worker
+  - remove it from node list on node1 (only manager left)
+  - ssh into 2/3 and tell them to leave
+- Lastly, force node1 to leave the Swarm
 
 .exercise[
 
