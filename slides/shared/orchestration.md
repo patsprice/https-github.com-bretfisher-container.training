@@ -95,9 +95,7 @@
 
 - Canonical Charmed Kubernetes
 
+- Rancher K3s (tiny version of Kubernetes with easier deployment, still early days)
+
 - And [Many, many more...](https://kubernetes.io/partners/#conformance) (86 as of June 2019)
-
---
-
-- Rancher K3s (tiny version of Kubernetes, still early days)
 

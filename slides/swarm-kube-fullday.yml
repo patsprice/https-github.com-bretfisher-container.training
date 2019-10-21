@@ -40,7 +40,7 @@ chapters:
   - swarm/updatingservices.md
   - swarm/rollingupdates.md
   - swarm/healthchecks.md
-  - swarm/cicd.md
+- - swarm/cicd.md
   - swarm/swarm-cleanup.md
   - shared/swarm-vs-k8s.md
 - - shared/swarm-to-k8s.md
@@ -50,13 +50,13 @@ chapters:
   - k8s/kubectlrun.md
   - k8s/declarative.md
   - k8s/deploymentslideshow.md
-  - k8s/setup-k8s.md
   - k8s/kubectlexpose.md
   # - k8s/shippingimages.md
   #- k8s/buildshiprun-selfhosted.md
   - k8s/buildshiprun-dockerhub.md
   - k8s/ourapponkube.md
   - k8s/logs-cli.md  # needs rng for examples
+  - k8s/setup-k8s.md
   - k8s/kubenet.md
   #- k8s/kubectlproxy.md
   #- k8s/localkubeconfig.md

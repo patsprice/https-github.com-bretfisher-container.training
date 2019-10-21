@@ -28,11 +28,11 @@
 
 ## `kubeadm` drawbacks
 
-- Doesn't set up Docker or any other container engine
+- Doesn't set up Docker or any other container engine (required)
 
-- Doesn't set up the overlay network
+- Doesn't set up the overlay network (required)
 
-- Doesn't set up multi-master (no high availability)
+- Doesn't set up optional multi-master (no high availability)
 
 --
 
@@ -42,31 +42,55 @@
 
 - "It's still twice as many steps as setting up a Swarm cluster 😕" -- Jérôme
 
+--
+
+- "It's still 4x as many steps for setting up HA than a Swarm cluster 😢" -- Bret
+
 ---
 
-## Other deployment options
+## Major deployment tool types
 
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/):
-  managed Kubernetes on Azure
+- Your distro of choice:
+[Docker Enterprise](https://www.docker.com/products/docker-enterprise),
+[RedHat OpenShift](https://www.openshift.com/),
+[VMware/Pivotal](https://pivotal.io/platform/pivotal-container-service),
+[Rancher](https://rancher.com/products/rancher),
+[61 distros and growing](https://kubernetes.io/partners/#conformance)
 
-- [GKE](https://cloud.google.com/kubernetes-engine/):
-  managed Kubernetes on Google Cloud
+--
 
-- [EKS](https://aws.amazon.com/eks/),
-  [eksctl](https://eksctl.io/):
-  managed Kubernetes on AWS
+- Official cloud-provided tools: 
+[Azure AKS](https://azure.microsoft.com/services/kubernetes-service/),
+[Google GKE](https://cloud.google.com/kubernetes-engine/),
+[AWS EKS](https://aws.amazon.com/eks/)/[eksctl](https://eksctl.io/),
+[DigitalOcean DOK](https://www.digitalocean.com/products/kubernetes/)
 
-- [kops](https://github.com/kubernetes/kops):
-  customizable deployments on AWS, Digital Ocean, GCE (beta), vSphere (alpha)
+--
 
-- [minikube](https://kubernetes.io/docs/setup/minikube/),
-  [kubespawn](https://github.com/kinvolk/kube-spawn),
-  [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/):
-  for local development
+- Cloud-agnostic production cluster tools:
+[kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/),
+[kops](https://github.com/kubernetes/kops),
+[kubicorn](https://github.com/kubicorn/kubicorn)
 
-- [kubicorn](https://github.com/kubicorn/kubicorn),
-  the [Cluster API](https://blogs.vmware.com/cloudnative/2019/03/14/what-and-why-of-cluster-api/):
-  deploy your clusters declaratively, "the Kubernetes way"
+--
+
+- Single-master Linux clusters:
+[k3s](https://k3s.io),
+[kubespawn](https://github.com/kinvolk/kube-spawn),
+[microk8s](https://microk8s.io)
+
+--
+
+- Local Windows/Mac dev/test:
+[Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/),
+[minikube](https://kubernetes.io/docs/setup/minikube/),
+[kind](https://kind.sigs.k8s.io)
+
+--
+
+- Browser based learning:
+[Play-With-Kubernetes](https://labs.play-with-k8s.com),
+[Katacoda](https://www.katacoda.com/courses/kubernetes)
 
 ---
 
@@ -85,8 +109,6 @@
   the excellent tutorial [Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
 
   *Kubernetes The Hard Way is optimized for learning, which means taking the long route to ensure you understand each task required to bootstrap a Kubernetes cluster.*
-
-- There are also many commercial options available!
 
 - For a longer list, check the Kubernetes documentation:
   <br/>

@@ -1,16 +1,18 @@
 ## Setup: clone repo, pull some images, and chill
 
-1. Test `ssh` to your servers (ask if you need a `ssh` help)
+1. Load the slides in your browser: gotober19.bretfisher.com
 
-2. Clone the workshop repo on `node1` (preferability somewhere in your user profile): 
+2. Test `ssh` to your servers (ask if you need a `ssh` help)
+
+3. Clone the workshop repo on `node1` (preferability somewhere in your user profile): 
 ```bash
 git clone --recursive https://github.com/bretfisher/container.training.git
 ```
 
-3. Log into Slack Chat for questions and help later
+4. Log into Slack Chat for questions and help later
   - Docker Mastery Slack ([Signup](https://chat.dockermastery.com), then join channel [#gotober19](https://dockermastery.slack.com/messages/CPC8ML6PJ/))
 
-4. BONUS: Get my [Docker Mastery Video Course for Free](https://www.udemy.com/docker-mastery/?couponCode=GOTOBER19)
+5. BONUS: Get my [Docker Mastery Video Course for Free](https://www.udemy.com/docker-mastery/?couponCode=GOTOBER19)
   
 ---
 
@@ -21,7 +23,13 @@ git clone --recursive https://github.com/bretfisher/container.training.git
    - Docker Captain, Udemy Course Author, DevOps Consultant
    - I spend 100% helping people with DevOps and container tools
 
-- The workshop will run from 09:00 to 16:00, with a short break every 90 min
+- The workshop schedule:
+  
+  - 09:00 - Workshops begin
+  - 10:30-10:45 - Coffee/Tea Break
+  - 12:15-13:00 - Lunch Break
+  - 14:30-14:45 - Coffee/Tea Break
+  - 16:00 - Workshop ends (but I'll hang around)
 
 - Feel free to interrupt for questions at any time
 

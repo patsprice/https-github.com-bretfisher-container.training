@@ -1,4 +1,4 @@
-## Declarative vs imperative in Kubernetes
+## What happened with run/create commands?
 
 - With Kubernetes, we cannot say: "run this container"
 
