@@ -1,18 +1,23 @@
-## Setup: clone repo, pull some images, and chill
+## Setup: test SSH, clone repo, and chill
 
 1. Load the slides in your browser: gotober19.bretfisher.com
 
-2. Test `ssh` to your servers (ask if you need a `ssh` help)
+2. Test `ssh` to your server `node1` (ask if you need `ssh` help) 
+`ssh docker@<your node1 IP>`
 
-3. Clone the workshop repo on `node1` (preferability somewhere in your user profile): 
+3. Test `ssh` from `node1` to `node2` and `node3` 
+(we setup `hosts` file so you don't need to use IP's between hosts). 
+Make sure to exit so you're back on `node1`
+
+4. Clone the workshop repo on `node1` (preferability somewhere in your user profile): 
 ```bash
 git clone --recursive https://github.com/bretfisher/container.training.git
 ```
 
-4. Log into Slack Chat for questions and help later
+5. Log into Slack Chat for questions and help later
   - Docker Mastery Slack ([Signup](https://chat.dockermastery.com), then join channel [#gotober19](https://dockermastery.slack.com/messages/CPC8ML6PJ/))
 
-5. BONUS: Get my [Docker Mastery Video Course for Free](https://www.udemy.com/docker-mastery/?couponCode=GOTOBER19)
+6. BONUS: Get my [Docker Mastery Video Course for Free](https://www.udemy.com/docker-mastery/?couponCode=GOTOBER19)
   
 ---
 

@@ -34,16 +34,19 @@ chapters:
   - swarm/creatingswarm.md
   - swarm/morenodes.md
   - swarm/firstservice.md
-- - swarm/btp-manual.md
+-
+  - swarm/btp-manual.md
   - swarm/swarmready.md
   - swarm/stacks.md
   - swarm/updatingservices.md
   - swarm/rollingupdates.md
   - swarm/healthchecks.md
-- - swarm/cicd.md
+-
+  - swarm/cicd.md
   - swarm/swarm-cleanup.md
   - shared/swarm-vs-k8s.md
-- - shared/swarm-to-k8s.md
+-
+  - shared/swarm-to-k8s.md
   - k8s/concepts-k8s.md
   - k8s/kubectlget.md
 -
@@ -55,18 +58,20 @@ chapters:
   #- k8s/buildshiprun-selfhosted.md
   - k8s/buildshiprun-dockerhub.md
   - k8s/ourapponkube.md
+  - k8s/scalingdockercoins.md
   - k8s/logs-cli.md  # needs rng for examples
+-
   - k8s/setup-k8s.md
   - k8s/kubenet.md
+  - k8s/dryrun.md
   #- k8s/kubectlproxy.md
   #- k8s/localkubeconfig.md
   #- k8s/accessinternal.md
 # - - k8s/dashboard.md
   #- k8s/kubectlscale.md
-- - k8s/scalingdockercoins.md
   # - shared/hastyconclusions.md
   # - k8s/daemonset.md
-  # - k8s/rollout.md
+  - k8s/rollout.md
 # Bridget hasn't added EFK yet
   #- k8s/logs-centralized.md
   # - k8s/helm.md
