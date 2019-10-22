@@ -17,7 +17,8 @@ git clone --recursive https://github.com/bretfisher/container.training.git
 5. Log into Slack Chat for questions and help later
   - Docker Mastery Slack ([Signup](https://chat.dockermastery.com), then join channel [#gotober19](https://dockermastery.slack.com/messages/CPC8ML6PJ/))
 
-6. BONUS: Get my [Docker Mastery Video Course for Free](https://www.udemy.com/course/docker-mastery/?couponCode=GOTOBER19)
+6. BONUS: Get my [Docker Mastery 15+ Hour Video Course for Free](https://www.udemy.com/course/docker-mastery/?couponCode=GOTOBER19)
+(Expires Wednesday)
   
 ---
 
