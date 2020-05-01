@@ -16,10 +16,10 @@ exclude:
 
 content:
 - shared/title.md
-- logistics.md
-- containers/intro.md
-- shared/about-slides.md
-- shared/chat-room-im.md
+# - logistics.md
+# - containers/intro.md
+# - shared/about-slides.md
+# - shared/chat-room-im.md
 #- shared/chat-room-zoom-meeting.md
 #- shared/chat-room-zoom-webinar.md
 - shared/toc.md
