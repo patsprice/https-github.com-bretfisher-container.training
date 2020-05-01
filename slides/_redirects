@@ -1,5 +1,5 @@
 # Uncomment and/or edit one of the the following lines if necessary.
-/ /bretintro.yml.html 200!
+/ /bret-intro.yml.html 200!
 /docker /intro-twodays.yml.html 200!
 /k8s /kube-twodays.yml.html 200!
 

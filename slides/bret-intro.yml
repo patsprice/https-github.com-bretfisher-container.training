@@ -17,4 +17,5 @@ exclude:
 content:
 - logistics-online.md
 - shared/about-slides.md
+- agenda.md
 

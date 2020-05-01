@@ -1,21 +1,13 @@
-## Intros
+## Intro
 
-- Hello! We are:
+- Hello! I'm Bret
 
-   - .emoji[👷🏻‍♀️] AJ ([@s0ulshake], [EphemeraSearch])
+- The training will run for 4 hours today, with a 10 minute break every hour
 
-   - .emoji[🐳] Jérôme ([@jpetazzo], Enix SAS)
+- Lunch break at 11:30 for 30 minutes
 
-- The training will run for 4 hours, with a 10 minutes break every hour
+- Bonus round Q&A from 2-3 (optional)
 
-  (the middle break will be a bit longer)
-
-- Feel free to ask questions at any time
+- Feel free to ask questions at any time, or put them in chat
 
 - *Especially when you see full screen container pictures!*
-
-- Live feedback, questions, help: @@CHAT@@
-
-[EphemeraSearch]: https://ephemerasearch.com/
-[@s0ulshake]: https://twitter.com/s0ulshake
-[@jpetazzo]: https://twitter.com/jpetazzo
