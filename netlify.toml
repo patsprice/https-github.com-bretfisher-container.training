@@ -1,7 +1,7 @@
 [build]
-  base = "slides"
-  publish = "slides"
+  base = "/slides"
+  publish = "/slides"
   command = "./build.sh once"
 [dev]
   framework = "#static"
-  publish = "slides"
+  publish = "/slides"
