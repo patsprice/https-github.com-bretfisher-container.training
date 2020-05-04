@@ -4,3 +4,18 @@
 [dev]
   framework = "#static"
   publish = "slides"
+[[redirects]]
+  from = /
+  to = bret-intro.yml.html
+  status = 200
+  force = true
+[[redirects]]
+  from = /docker
+  to = intro-fullday.yml.html
+  status = 200
+  force = true
+[[redirects]]
+  from = /k8s
+  to = kube-fullday.yml.html
+  status = 200
+  force = true
