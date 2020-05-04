@@ -1,0 +1,6 @@
+[build]
+  base = "slides"
+  command = "./build.sh once"
+[dev]
+  framework = "#static"
+  publish = "slides"

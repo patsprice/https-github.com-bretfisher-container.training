@@ -1,5 +1,3 @@
-netlify.toml
-
 *.pyc
 *.swp
 *~
