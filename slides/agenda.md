@@ -1,15 +1,13 @@
 ## Agenda
 
-- Tuesday: Docker 101
+- Tuesday & Wednesday: [Docker 101, 300 slides](/docker)
 
-- Wednesday: More Docker and Docker Compose
+- Thursday: [Kubernetes 101, 570 slides](/k8s)
 
-- Thursday: Kubernetes 101
+- Friday: Q&A Day. [Dockerizing Spring Boot & Node.js, Docker security, advanced Compose](https://www.notion.so/Bret-s-Chicago-Workshop-f6482820259c4e46bdc1809b212fe594)
 
-- Friday: Dockerizing springboot and Node.js apps, Docker security, and more
+Extra Credit Slide Decks:
 
-Slide Decks: 
+[Docker Full, 707 slides](/intro-selfpaced.yml.html)
 
-[Docker](/docker)
-
-[Kubernetes](/k8s)
+[Kubernetes Full, 1500 slides](/kube-selfpaced.yml.html)
