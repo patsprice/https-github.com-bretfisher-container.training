@@ -5,17 +5,17 @@
   framework = "#static"
   publish = "slides"
 [[redirects]]
-  from = /
-  to = bret-intro.yml.html
+  from = "/"
+  to = "bret-intro.yml.html"
   status = 200
   force = true
 [[redirects]]
-  from = /docker
-  to = intro-fullday.yml.html
+  from = "/docker"
+  to = "intro-fullday.yml.html"
   status = 200
   force = true
 [[redirects]]
-  from = /k8s
-  to = kube-fullday.yml.html
+  from = "/k8s"
+  to = "kube-fullday.yml.html"
   status = 200
   force = true
