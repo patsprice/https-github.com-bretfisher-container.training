@@ -1,11 +1,3 @@
-[build]
-  base = "slides"
-  command = "./build.sh once"
-
-[dev]
-  framework = "#static"
-  publish = "slides"
-
 [[redirects]]
   from = "/*"
   to = "/bret-intro.yml.html"
