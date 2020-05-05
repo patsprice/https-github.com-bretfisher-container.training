@@ -24,9 +24,11 @@ content:
 #- shared/chat-room-zoom-webinar.md
 - shared/toc.md
 -
-  #- containers/Docker_Overview.md
+  - containers/Docker_OverviewShort.md
+  # - containers/Docker_Overview.md
   #- containers/Docker_History.md
   - containers/Training_Environment.md
+  # - shared/webssh.md
   #- containers/Installing_Docker.md
   - containers/First_Containers.md
   - containers/Background_Containers.md
@@ -40,18 +42,18 @@ content:
   - containers/Building_Images_With_Dockerfiles.md
   - containers/Cmd_And_Entrypoint.md
   - containers/Copying_Files_During_Build.md
-  - containers/Exercise_Dockerfile_Basic.md
 -
   - containers/Container_Networking_Basics.md
-  #- containers/Network_Drivers.md
-  #- containers/Container_Network_Model.md
+  - containers/Network_Drivers.md
+  - containers/Container_Network_Model.md
   - containers/Local_Development_Workflow.md
   - containers/Compose_For_Dev_Stacks.md
-  - containers/Exercise_Composefile.md
 -
   - containers/Multi_Stage_Builds.md
   #- containers/Publishing_To_Docker_Hub.md
   - containers/Dockerfile_Tips.md
+  - containers/Exercise_Composefile.md
+  - containers/Exercise_Dockerfile_Basic.md
   - containers/Exercise_Dockerfile_Advanced.md
   #- containers/Docker_Machine.md
   #- containers/Advanced_Dockerfiles.md

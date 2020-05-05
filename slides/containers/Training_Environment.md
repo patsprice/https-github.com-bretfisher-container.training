@@ -55,46 +55,6 @@ individual Docker VM.*
 
 ---
 
-## Why don't we run Docker locally?
-
-- We are going to download container images and distribution packages.
-
-- This could put a bit of stress on the local WiFi and slow us down.
-
-- Instead, we use a remote VM that has a good connectivity
-
-- In some rare cases, installing Docker locally is challenging:
-
-  - no administrator/root access (computer managed by strict corp IT)
-
-  - 32-bit CPU or OS
-
-  - old OS version (e.g. CentOS 6, OSX pre-Yosemite, Windows 7)
-
-- It's better to spend time learning containers than fiddling with the installer!
-
----
-
-## Connecting to your Virtual Machine
-
-You need an SSH client.
-
-* On OS X, Linux, and other UNIX systems, just use `ssh`:
-
-```bash
-$ ssh <login>@<ip-address>
-```
-
-* On Windows, if you don't have an SSH client, you can download:
-
-  * Putty (www.putty.org)
-
-  * Git BASH (https://git-for-windows.github.io/)
-
-  * MobaXterm (https://mobaxterm.mobatek.net/)
-
----
-
 ## Checking your Virtual Machine
 
 Once logged in, make sure that you can run a basic Docker command:
