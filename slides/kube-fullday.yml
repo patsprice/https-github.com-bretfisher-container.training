@@ -14,20 +14,21 @@ slides: https://chicago.bretfisher.com
 
 exclude:
 - self-paced
+- extra-details
 
 content:
 - shared/title.md
 # - logistics.md
-- k8s/intro.md
+# - k8s/intro.md
 # - shared/about-slides.md
 # - shared/chat-room-im.md
 #- shared/chat-room-zoom-meeting.md
 #- shared/chat-room-zoom-webinar.md
 - shared/toc.md
 -
-  - shared/prereqs.md
+  # - shared/prereqs.md
   #- shared/webssh.md
-  - shared/connecting.md
+  # - shared/connecting.md
   #- k8s/versions-k8s.md
   - shared/sampleapp.md
   #- shared/composescale.md
