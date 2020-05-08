@@ -1,0 +1,18 @@
+title: |
+  Friday Topics
+  & Deep Dive
+
+chat: "WebEx"
+#chat: "[Gitter](https://gitter.im/jpetazzo/workshop-yyyymmdd-city)"
+
+gitrepo: github.com/bretfisher/container.training
+
+slides: https://chicago.bretfisher.com
+
+#slidenumberprefix: "#SomeHashTag &mdash; "
+
+exclude:
+- self-paced
+
+content:
+- friday.md
